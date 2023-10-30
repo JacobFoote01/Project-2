@@ -1,11 +1,11 @@
+import BoxComponent from "./components/vehicle_box"
 import NavBar from "./navbar"
-import Car from "./components/car"
 
 function App() {
   return (
     <>
       <NavBar/>
-      <Car/>
+      <BoxComponent />
     </>
   )
 }
