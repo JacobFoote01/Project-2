@@ -2,7 +2,7 @@ import { DataTypes, Model } from 'sequelize';
 import util from 'util';
 import connectToDB from './db.js';
 
-export const db = await connectToDB('postgresql:///VehicleLog')
+export const db = await connectToDB('postgresql:///vehiclelog')
 
 export class User extends Model {
   [util.inspect.custom]() {
@@ -14,8 +14,9 @@ User.init(
 {
   userId: {
     type: DataTypes.INTEGER,
-    allowNull: false,
+    autoIncrement: true,
     primaryKey: true,
+    
   },
   email: {
     type: DataTypes.STRING,
@@ -45,7 +46,7 @@ Vehicle.init(
     vehicleId:{
       type: DataTypes.INTEGER,
       primaryKey: true,
-      allowNull: false,
+      autoIncrement: true,
     },
     make:{
       type: DataTypes.STRING
@@ -74,14 +75,11 @@ Maintenance.init(
     maintenanceId:{
       type: DataTypes.INTEGER,
       primaryKey: true,
-      allowNull: false,
+      autoIncrement: true,
     },
     difficulty:{
       type: DataTypes.INTEGER
-    },
-    createdAt:{
-      type: DataTypes.TIME
-    },
+    }
   },
   {
     modelName: 'maintenance',
@@ -100,13 +98,10 @@ Modifications.init(
     modificationId:{
       type: DataTypes.INTEGER,
       primaryKey: true,
-      allowNull: false,
+      autoIncrement: true,
     },
     difficulty:{
       type: DataTypes.INTEGER
-    },
-    createdAt:{
-      type: DataTypes.TIME
     },
   },
   {
@@ -126,7 +121,7 @@ ToDo.init(
     toDoId:{
       type: DataTypes.INTEGER,
       primaryKey: true,
-      allowNull: false,
+      autoIncrement: true,
     },
     difficulty:{
       type: DataTypes.INTEGER
