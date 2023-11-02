@@ -4,7 +4,7 @@ import AddVehicle from './add_vehicle';
 function Vehicles() {
   return (
     <>
-    <h2>Welcome, Jacob. What vehicle would you like to work on today?</h2>
+    <h2>Welcome, {`User`}. What vehicle would you like to work on today?</h2>
     <p className="box">
         <button>
           <img src="" alt="Your car" />
