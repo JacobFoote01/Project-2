@@ -1,33 +1,50 @@
 import React from 'react';
-import AddVehicle from './add_vehicle';
+import { Link }from 'react-router-dom';
 
-function Vehicles() {
+export default function Vehicles() {
+
   return (
     <>
     <h2>Welcome, {`User`}. What vehicle would you like to work on today?</h2>
-    <p className="box">
-        <button>
-          <img src="" alt="Your car" />
-            <input type='text' value="Year"/>
-            <input type='text' value="Make"/>
-            <input type='text' value="Model"/>
-        </button>
+    <p className="vehicle 1">
+        <Link to='/vehicle'>
+          <img src="" 
+          alt="Your car" 
+          name="Your car url" 
+          
+          />
+            <br/>
+            <input type='text' name="Year" aria-label='Year'/>
+            <br/>
+            <input type='text' name="Make" aria-label='Make'/>
+            <br/>
+            <input type='text' name="Model" aria-label='Model'/>
+            <br/>
+        </Link>
+
+            <button name='delete'>Delete</button>
+            <button name='save'>Save</button>
     </p>
-    <br/>
-    <p className="box">
-          <button>
-        <img src="" alt="Your other car" />
-            <input type='text' value="Year"/>
-            <input type='text' value="Make"/>
-            <input type='text' value="Model"/>
-          </button>
+    <p className="vehicle 2">
+          <Link to='/vehicle'>
+        <img src="" alt="Your other car" name="Your other car url"/>
+            <br/>
+            <input type='text' name="Year" aria-label='Year'/>
+            <br/>
+            <input type='text' name="Make" aria-label='Make'/>
+            <br/>
+            <input type='text' name="Model" aria-label='Model'/>
+            <br/>
+          </Link>
+
+            <button name='delete'>Delete</button>
+            <button name='save'>Save</button>
     </p>
-    <p className="add">
-      <button aria-label='Add'>Add</button>
-      <button aria-label='Delete'>Delete</button>
+    <p>
+      <Link to='/add_vehicle'>
+        <button name='Add'>Add</button>
+      </Link>
     </p>
     </>
   );
 }
-
-export default Vehicles;

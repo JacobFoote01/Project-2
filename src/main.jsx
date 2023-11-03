@@ -10,9 +10,10 @@ import Login from './components/login.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
+
   <Route
     path='/' 
-    element={<NavBar />}
+    element={<NavBar/>}
     errorElement={<Error />}
   >
 

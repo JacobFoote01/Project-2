@@ -3,7 +3,7 @@ function Vehicle() {
     return(
         <>
             <div>
-                This is your vehicle 
+                This is your vehicle.
             </div>
         </>
     )

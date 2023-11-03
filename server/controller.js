@@ -22,3 +22,9 @@
 
 // function updateVehicle(req, res) {}
 
+//export {
+// getVehicles,
+// addVehicle,
+// removeVehicle,
+// updateVehicle,   
+//}

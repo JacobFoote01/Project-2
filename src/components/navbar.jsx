@@ -1,10 +1,11 @@
 import { Container, Navbar, Nav } from 'react-bootstrap';
 import { Outlet } from 'react-router-dom';
 
-function NavBar() {
+export default function NavBar() {
+
   return (
     <>
-    <Navbar className="bg-body-tertiary">
+    <Navbar expand='lg'>
       <Container>
         <Navbar.Brand href="/">Vehicle Log</Navbar.Brand>
             <Navbar.Collapse className="justify-content-end">
@@ -18,5 +19,3 @@ function NavBar() {
     </>
   );
 }
-
-export default NavBar;

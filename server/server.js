@@ -1,27 +1,29 @@
-// import express from 'express'
-// import ViteExpress from 'vite-express'
-// import morgan from 'morgan'
-// import cors from 'cors'
+import express from 'express'
+import ViteExpress from 'vite-express'
+import morgan from 'morgan'
 
-// const app = express()
+// import * as controller from './controller.js'
 
-// //middleware
-// app.use(morgan('dev'))
-// app.use(express.urlencoded({extended: false}))
-// app.use(express.static('public'))
-// app.use(express.json())
-// app.use(cors({
-//     origin:'*'
-// }))
 
-// //routes go here 
-// // app.get()
+const app = express()
 
-// // app.post()
+//middleware
+app.use(morgan('dev'))
+app.use(express.urlencoded({extended: false}))
+app.use(express.static('public'))
+app.use(express.json())
 
-// // app.delete()
 
-// // app.put()
+//routes go here 
+// app.get()
 
-// //door to the server 
-// ViteExpress.listen(app, 5173, () => console.log(`Welcome! Report to http://localhost:5173`))
+// app.post()
+
+// app.delete()
+
+// app.put()
+
+//door to the server 
+ViteExpress.listen(app, 5173, () => 
+console.log(`Welcome! Report to http://localhost:5173`)
+)
