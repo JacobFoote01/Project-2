@@ -1,29 +1,18 @@
-import { NavLink, Outlet} from 'react-router-dom'
-import Logout from './src/components/logout'
-import NavBar from './src/components/navbar'
-import Login from './src/components/login'
 import AddVehicle from './src/components/add_vehicle'
+import NavBar from './src/components/navbar'
+import Vehicles from './src/components/vehicles'
 
 function App() {
     return(
-        <>
-            <nav>
-                <ul>
-                    <li>
-                        <NavLink to="/navbar">Home</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/login">Log In</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/logout">Log out </NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/add_vehicle">Add</NavLink>
-                    </li>
-                </ul>
-            </nav>
-        </>
+        <div className='App'>
+            <NavBar />
+            <div className='content'>
+                <h1>Welcome, {`User`}. What vehicle would you like to work on today?</h1>
+                <p>{Vehicles}</p>
+                <button to='/add_vehicle' >Add</button>
+            </div>
+            
+        </div>
     )
 }
 

@@ -11,13 +11,14 @@ export default function Login() {
     const res = await axios.post('/api/auth', formData)
 
     if (res.data.success) {
-      navigate('/me')
+      navigate('/app')
     }
   }
   
   return (
     <>
-      <h1>Log In</h1>
+      <h1>Welcome to your Vehicle Log!</h1>
+      <h2>Log In</h2>
       <LoginForm onLogin={handleLogin} />
     </>
   );

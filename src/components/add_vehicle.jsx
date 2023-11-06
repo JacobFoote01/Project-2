@@ -1,15 +1,34 @@
+import { useState } from 'react'
 
 function AddVehicle() {
-    console.log('I have reached add_vehicle')
+
+    const [vehicle, setVehicle] = useState({
+        year: "",
+        make: "",
+        model: "",
+    })
+
+    const handleClick = (e) => {
+        const {name, value} = e.target
+        
+        setVehicle((prev) => {
+            return{...prev, [name]: value}
+        })
+    }
+
+    const handleSave = () => {
+        e.preventDefault()
+        console.log(vehicle)
+    }
+
     return (
-        <>
-            <p>
-                <input type="text" name="Year" aria-label="Year">Year</input>
-                <input type="text" name="Make" aria-label="Make">Make</input> 
-                <input type="text" name="Model" aria-label="Model">Model</input> 
-                <button name="save">Save</button>
-            </p>
-        </> 
+        <form onSubmit={handleSave}>
+            <h3>Year :</h3> <input type='text' name='year' onChange={handleClick}/>
+            <h3>Make :</h3> <input type='text' name='make' onChange={handleClick}/>
+            <h3>Model :</h3> <input type='text' name='model' onChange={handleClick}/>
+            <button className="save" onClick={handleClick}>Save</button>
+        </form> 
     )
 }
+
 export default AddVehicle

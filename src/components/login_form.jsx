@@ -1,19 +1,19 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 
 export default function LoginForm({ onLogin }) {
-  const [emailValue, setEmailValue] = useState('');
-  const [passwordValue, setPasswordValue] = useState('');
+  // const [emailValue, setEmailValue] = useState('');
+  // const [passwordValue, setPasswordValue] = useState('');
 
   return (
     <form
-      onSubmit={(e) => {
-        onLogin(e, {
-          email: emailValue,
-          password: passwordValue,
-        });
-      }}
+      // onSubmit={(e) => {
+      //   onLogin(e, {
+      //     email: emailValue,
+      //     password: passwordValue,
+      //   });
+      // }}
     >
-      <label htmlFor="email">Email:</label>
+      {/* <label htmlFor="email">Email:</label>
       <input
         name="email"
         id="email"
@@ -21,6 +21,7 @@ export default function LoginForm({ onLogin }) {
         required
         onChange={(e) => setEmailValue(e.target.value)}
       />
+      <br/>
       <label htmlFor="password">Password:</label>
       <input
         name="password"
@@ -28,7 +29,7 @@ export default function LoginForm({ onLogin }) {
         type="password"
         required
         onChange={(e) => setPasswordValue(e.target.value)}
-      />
+      /> */}
       <button type="submit">Log In</button>
     </form>
   );

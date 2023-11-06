@@ -3,15 +3,17 @@ import { Link }from 'react-router-dom';
 
 export default function Vehicles() {
 
+  // const deleteButton = () => {}
+  // const saveButton = () => {} 
+  // const addButton = () => {}
+ 
   return (
     <>
-    <h2>Welcome, {`User`}. What vehicle would you like to work on today?</h2>
     <p className="vehicle 1">
         <Link to='/vehicle'>
           <img src="" 
           alt="Your car" 
           name="Your car url" 
-          
           />
             <br/>
             <input type='text' name="Year" aria-label='Year'/>
@@ -22,7 +24,7 @@ export default function Vehicles() {
             <br/>
         </Link>
 
-            <button name='delete'>Delete</button>
+            <button name='delete' onClick={handleClick}>Delete</button>
             <button name='save'>Save</button>
     </p>
     <p className="vehicle 2">
