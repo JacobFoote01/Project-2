@@ -1,15 +1,17 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function LoginForm({ onLogin }) {
+  const redirect = useNavigate()
   const [emailValue, setEmailValue] = useState('');
   const [passwordValue, setPasswordValue] = useState('');
  
   const goHome = () => {
-    
+    redirect("/app")
   }
 
   const Add = () => { 
-    console.log('add user')
+    redirect("/add_user")
   }
 
   return (

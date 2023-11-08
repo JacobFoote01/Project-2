@@ -9,7 +9,7 @@ function AddVehicle() {
     })
 
     const handleClick = (e) => {
-        e.preventDefault
+        e.preventDefault()
         const {name, value} = e.target
         
         setVehicle((prev) => {
@@ -23,13 +23,15 @@ function AddVehicle() {
     }
 
     return (
-        <form onSubmit={handleSave}>
-            <h3>Year :</h3> <input type='text' name='year' onChange={handleClick}/>
-            <h3>Make :</h3> <input type='text' name='make' onChange={handleClick}/>
-            <h3>Model :</h3> <input type='text' name='model' onChange={handleClick}/>
-            <br/>
+        <>
+            <form onSubmit={handleSave}>
+                <h3>Year :</h3> <input type='text' name='year' onChange={handleClick}/>
+                <h3>Make :</h3> <input type='text' name='make' onChange={handleClick}/>
+                <h3>Model :</h3> <input type='text' name='model' onChange={handleClick}/>
+                <br/>
+            </form> 
             <button className="save" onClick={handleClick}>Save</button>
-        </form> 
+        </>
     )
 }
 

@@ -6,6 +6,10 @@ export default function Vehicles() {
 
   const redirect = useNavigate()
 
+  const handleClick = () => {
+    redirect("/vehicle")
+  }
+
   const deleteButton = () => {
     console.log('delete button')
   }
@@ -13,23 +17,19 @@ export default function Vehicles() {
   return (
     <>
     <p className="vehicle 1">
-        <Link to='/vehicle'>
-          <div>
+        <div onClick={handleClick}>
               Year : {},
               Make : {},
               Model : {},
-          </div>
-        </Link>
-          <button name='delete' onClick={deleteButton}>Delete</button>
+        </div>
+        <button name='delete' onClick={deleteButton}>Delete</button>
     </p>
     <p className="vehicle 2">
-          <Link to='/vehicle'>
-            <div>
+            <div onClick={handleClick}>
               Year : {},
               Make : {},
               Model : {},
             </div>
-          </Link>
             <button name='delete' onClick={deleteButton}>Delete</button>
     </p>
     </>
