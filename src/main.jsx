@@ -4,26 +4,33 @@ import Logout from "./components/logout.jsx"
 import ReactDOM from 'react-dom/client'
 import Login from './components/login.jsx';
 import App from '../App.jsx';
-import Vehicles from './components/vehicles.jsx';
 import NavBar from './components/navbar.jsx';
+import Vehicles from './components/vehicles.jsx';
+import AddVehicle from './components/add_vehicle.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
 
-  <Route
-    path='/' 
-    element={<NavBar/>}
-    errorElement={<Error />}
-  >
+  <Route path='/' element={<NavBar/>} errorElement={<Error />}>
     <Route 
       index
-      path='/login'
-      element={<Login />} 
+      path='/app'
+      element={<App />} 
     />
     
     <Route 
-      path='/app'
-      element={<App />} 
+      path='/login'
+      element={<Login />} 
+    />
+
+    <Route 
+      path='/logout'
+      element={<Logout />} 
+    />
+
+    <Route 
+      path='/add_vehicle'
+      element={<AddVehicle/>}
     />
 
   </Route>

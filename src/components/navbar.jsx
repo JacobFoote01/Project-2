@@ -7,7 +7,7 @@ export default function NavBar() {
     <>
     <Navbar expand='lg'>
       <Container>
-        <Navbar.Brand href="/">Vehicle Log</Navbar.Brand>
+        <Navbar.Brand href="/app">Vehicle Log</Navbar.Brand>
             <Navbar.Collapse className="justify-content-end">
             <Nav className="me-auto">
                 <Nav.Link href='/login'>Login</Nav.Link>

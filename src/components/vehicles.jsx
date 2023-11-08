@@ -1,51 +1,36 @@
 import React from 'react';
 import { Link }from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function Vehicles() {
 
-  // const deleteButton = () => {}
-  // const saveButton = () => {} 
-  // const addButton = () => {}
+  const redirect = useNavigate()
+
+  const deleteButton = () => {
+    console.log('delete button')
+  }
  
   return (
     <>
     <p className="vehicle 1">
         <Link to='/vehicle'>
-          <img src="" 
-          alt="Your car" 
-          name="Your car url" 
-          />
-            <br/>
-            <input type='text' name="Year" aria-label='Year'/>
-            <br/>
-            <input type='text' name="Make" aria-label='Make'/>
-            <br/>
-            <input type='text' name="Model" aria-label='Model'/>
-            <br/>
+          <div>
+              Year : {},
+              Make : {},
+              Model : {},
+          </div>
         </Link>
-
-            <button name='delete' onClick={handleClick}>Delete</button>
-            <button name='save'>Save</button>
+          <button name='delete' onClick={deleteButton}>Delete</button>
     </p>
     <p className="vehicle 2">
           <Link to='/vehicle'>
-        <img src="" alt="Your other car" name="Your other car url"/>
-            <br/>
-            <input type='text' name="Year" aria-label='Year'/>
-            <br/>
-            <input type='text' name="Make" aria-label='Make'/>
-            <br/>
-            <input type='text' name="Model" aria-label='Model'/>
-            <br/>
+            <div>
+              Year : {},
+              Make : {},
+              Model : {},
+            </div>
           </Link>
-
-            <button name='delete'>Delete</button>
-            <button name='save'>Save</button>
-    </p>
-    <p>
-      <Link to='/add_vehicle'>
-        <button name='Add'>Add</button>
-      </Link>
+            <button name='delete' onClick={deleteButton}>Delete</button>
     </p>
     </>
   );

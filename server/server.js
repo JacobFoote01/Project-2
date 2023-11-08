@@ -15,7 +15,7 @@ app.use(express.json())
 
 
 //routes go here 
-// app.get()
+// app.get('/')
 
 // app.post()
 
