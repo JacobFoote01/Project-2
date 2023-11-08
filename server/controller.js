@@ -1,6 +1,6 @@
-// function getVehicles(req, res) {
-//     res.json()
-// }
+function getVehicles(req, res) {
+    res.json()
+}
 
 function addVehicle(req, res) {
     data.push({
@@ -12,7 +12,14 @@ function addVehicle(req, res) {
     res.json(data)
 }
 
-function removeVehicle(req, res) {}
+function removeVehicle(req, res) {
+    const { id } = req.params
+
+    data = data.filter((vehicle) => {
+        return vehicle.id !== Number(id)
+    })
+    res.json(data)
+}
 
 function updateVehicle(req, res) {}
 

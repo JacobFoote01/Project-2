@@ -18,19 +18,19 @@ function AddVehicle() {
     }
 
     const handleSave = () => {
-        e.preventDefault()
-        console.log(vehicle)
+        console.log("save button")
     }
 
     return (
         <>
             <form onSubmit={handleSave}>
+                <h3>Img Url :</h3> <input type='text' name='year' onChange={handleClick}/>
                 <h3>Year :</h3> <input type='text' name='year' onChange={handleClick}/>
                 <h3>Make :</h3> <input type='text' name='make' onChange={handleClick}/>
                 <h3>Model :</h3> <input type='text' name='model' onChange={handleClick}/>
                 <br/>
             </form> 
-            <button className="save" onClick={handleClick}>Save</button>
+            <button className="save" onClick={handleSave}>Save</button>
         </>
     )
 }

@@ -9,14 +9,14 @@ function App() {
     }
 
     return(
-        <div className='App'>
+        <>
             <div className='content'>
                 <h1>Welcome, {`User`}. What vehicle would you like to work on today?</h1>
-                <p>{<Vehicles/>}</p>
+                <div>{<Vehicles/>}</div>
                 <button type="submit" onClick={handleClick}>Add</button>
             </div>
             
-        </div>
+        </>
     )
 }
 

@@ -18,18 +18,21 @@ function AddUser() {
     }
 
     const handleSave = () => {
-        e.preventDefault()
-        console.log(user)
+        console.log("save button")
     }
 
     return(
         <>
             <form onSubmit={handleSave}>
-                <h3>Email:</h3><input type="text" onChange={handleClick}/>
-                <h3>Password:</h3><input type="text" onChange={handleClick}/>
-                <h3>Confirm Password:</h3><input type="text" onChange={handleClick}/>
+                <h3>Email:</h3>
+                <input type="text" onChange={handleClick}/>
+                <h3>Password:</h3>
+                <input type="text" onChange={handleClick}/>
+                <h3>Confirm Password:</h3>
+                <input type="text" onChange={handleClick}/>
             </form>
-            <button className="save" onClick={handleClick}>Save</button>
+            <br/>
+            <button className="save" onClick={handleSave}>Save</button>
         </>
     
     )

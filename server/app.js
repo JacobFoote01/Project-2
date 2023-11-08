@@ -23,7 +23,7 @@ app.use(express.json())
 // app.post()
 
 //to delete
-// app.delete()
+// app.delete('/')
 
 // for editing
 // app.put()
