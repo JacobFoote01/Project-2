@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import LoginForm from './login_form';
+import LoginForm from '../components/login_form';
 import axios from 'axios';
 
 export default function Login() {
@@ -8,10 +8,10 @@ export default function Login() {
   const handleLogin = async (e, formData) => {
     e.preventDefault()
 
-    const res = await axios.post('/api/auth', formData)
+    const res = await axios.post('/server/auth', formData)
 
     if (res.data.success) {
-      navigate('/App')
+      navigate('/app')
     }
   }
   

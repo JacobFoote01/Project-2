@@ -2,24 +2,24 @@ import React from 'react'
 import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom';
 import Logout from "./components/logout.jsx"
 import ReactDOM from 'react-dom/client'
-import Login from './components/login.jsx';
+import Login from './pages/login.jsx';
 import App from '../App.jsx';
 import NavBar from './components/navbar.jsx';
-import AddVehicle from './components/add_vehicle.jsx';
-import AddUser from './components/add_user.jsx';
-import Vehicle from './components/vehicle.jsx';
-import Maintenance from './components/maintenance.jsx';
-import ToDo from './components/to_do.jsx';
-import Mods from './components/mods.jsx';
+import AddVehicle from './pages/add_vehicle.jsx';
+import AddUser from './pages/add_user.jsx';
+import Vehicle from './pages/vehicle.jsx';
+import Maintenance from './pages/maintenance.jsx';
+import ToDo from './pages/to_do.jsx'
+import Mods from './pages/mods.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
 
-  <Route path='/' element={<NavBar/>} errorElement={<Error />}>
+  <Route path='/' element={<NavBar />} errorElement={<Error />}>
   
-    <Route index path='/app' element={<App />}/>
+    <Route index path='/login' element={<Login />}/>
     
-    <Route path='/login' element={<Login />}/>
+    <Route path='/app' element={<App />}/>
 
     <Route path='/logout' element={<Logout />}/>
 

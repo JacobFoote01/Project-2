@@ -21,7 +21,20 @@ function removeVehicle(req, res) {
     res.json(data)
 }
 
-function updateVehicle(req, res) {}
+function updateVehicle(req, res) {
+    data = data.map((vehicle) => {
+       if (task.id === Number(req.body.id)) {
+           return req.body
+       }
+       return vehicle
+    })
+
+    console.log(req.body)
+    console.log(data)
+
+
+    res.json(data)
+}
 
 export {
 getVehicles,

@@ -29,4 +29,15 @@ async function removeVehicle(id) {
     return await response.json()
   }
 
-  export default { getVehicle, addVehicle, removeVehicle }
+async function updateVehicle(task) {
+    const response = await fetch(`${BASE_URL}/tasks`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(task)
+    })
+    return await response.json()
+  }
+
+  export default { getVehicle, addVehicle, removeVehicle, updateVehicle }

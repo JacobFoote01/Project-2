@@ -8,14 +8,10 @@ function Vehicles() {
   const handleClick = () => {
     redirect("/vehicle")
   }
-  
-  const deleteButton = () => {
-    console.log('delete button')
-  }
  
   return (
     <>
-      <form className="vehicle" onClick={handleClick}>
+      <form className="vehicles" onClick={handleClick}>
         Img Url: {}
         <br/>
         Year : {}
@@ -24,7 +20,6 @@ function Vehicles() {
         <br/>
         Model : {}
       </form>
-      <button name='delete' onClick={deleteButton}>Delete</button>
     </>
   );
 }

@@ -136,11 +136,7 @@ ToDo.init(
   }
 )
 
-
-User.sync({ force: true })
-Vehicle.sync({ force: true })
-Maintenance.sync({ force: true })
-Modifications.sync({ force: true })
-ToDo.sync({ force: true })
-
-// await db.close()
+User.hasMany(Vehicle, { foreignKey: 'vehicleId' })
+Vehicle.hasMany(Maintenance, { foreignKey: 'maintenanceId' })
+Vehicle.hasMany(Modifications, { foreignKey: 'modificationId' })
+Vehicle.hasMany(ToDo, { foreignKey: 'toDoId' })
