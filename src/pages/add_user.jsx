@@ -26,6 +26,8 @@ function AddUser() {
             <form onSubmit={handleSave}>
                 <h3>Email:</h3>
                 <input type="text" onChange={handleClick}/>
+                <h3>Username:</h3>
+                <input type="text" onChange={handleClick}/>
                 <h3>Password:</h3>
                 <input type="text" onChange={handleClick}/>
                 <h3>Confirm Password:</h3>

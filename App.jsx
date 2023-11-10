@@ -1,3 +1,4 @@
+import VehicleList from './src/pages/vehicle'
 import Vehicles from './src/pages/vehicles'
 import { useNavigate } from 'react-router-dom'
 // import { useEffect } from 'react'
@@ -23,7 +24,7 @@ function App() {
         <>
             <div className='content'>
                 <h1>Welcome, What vehicle would you like to work on today?</h1>
-                <div>{<Vehicles/>}</div>
+                <div>{<Vehicles />}</div>
                 <button type="submit" onClick={handleClick}>Add</button>
             </div>
             

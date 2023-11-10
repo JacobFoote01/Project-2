@@ -3,6 +3,7 @@ import { useState } from 'react'
 function AddVehicle() {
 
     const [vehicle, setVehicle] = useState({
+        img: "",
         year: "",
         make: "",
         model: "",

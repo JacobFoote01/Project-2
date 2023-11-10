@@ -1,17 +1,13 @@
 import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import * as api from '../api/index'
 
-function Vehicle({vehicle, setData}) {
-    const { year, make, model } = vehicle
-    const [isEditing, setIsEditing] = useState(false)
-    const [input, setInput] = useState(vehicle)
+function VehicleList() {
+    const [input, setInput] = useState()
     const redirect = useNavigate()
+    const year = '1995'
+    const make = 'subaru'
+    const model = 'legacy'
 
-    const removeVehicle = async () => {
-        const newData = await api.removeVehicle(vehicle.id)
-        setData(newData)
-    }
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -19,57 +15,35 @@ function Vehicle({vehicle, setData}) {
         setInput({ ...input, [name]: value });
       }
 
-    const editVehicle = () => {
-        setIsEditing(true);
-      }
-
-    const saveVehicle = async () => {
-        const newData = await api.updateVehicle({
-          ...vehicle,
-          year: input.year,
-          make: input.make,
-          model: input.model,
-        })
-    
-        setData(newData)
-        setIsEditing(false)
-      }
-
-      const cancelEdit = () => {
-        setInput(vehicle)
-        setIsEditing(false)
-      }
-    
-
     const Maintenance = () => {
         redirect("/maintenance")
     }
-    
     const Mods = () => {
         redirect("/mods")
     }
-
     const ToDo = () => {
         redirect("/to_do")
     }
+    const handleSave = () => {
+        console.log('save')
+    }
 
     return(
-        <div className="vehicle">            
-            {!isEditing && <p>{year}</p>}
-            {!isEditing && <p>{make}</p>}
-            {!isEditing && <p>{model}</p>}
-            {isEditing && <input type="text" placeholder="Year"  name="year" value={input.year} onChange={handleInputChange} />}
-            {isEditing && <input type="text" placeholder="Make"  name="make" value={input.make} onChange={handleInputChange} />}
-            {isEditing && <input type="text" placeholder="Model"  name="model" value={input.model} onChange={handleInputChange} />}
-            {!isEditing &&<button onClick={editVehicle}>Edit</button>}
-            {!isEditing && <button onClick={removeVehicle}>Remove</button>}
-            {isEditing && <button onClick={saveVehicle}>Save</button>}
-            {isEditing && <button onClick={cancelEdit}>Cancel</button>}
-            <button type="submit" onClick={Maintenance}>Maintenance</button>
-            <button type="submit" onClick={Mods}>Modifications</button>
-            <button type="submit" onClick={ToDo}>To Do</button>
-        </div>
+        <>
+                <button type="submit" onClick={Maintenance}>Maintenance</button>
+                <button type="submit" onClick={Mods}>Modifications</button>
+                <button type="submit" onClick={ToDo}>To Do</button>
+            <div className="vehicle">            
+                <p>{year}</p>
+                <p>{make}</p>
+                <p>{model}</p>
+                <input type="text" placeholder="Year"  name="year" value={input.year} onChange={handleInputChange} />
+                <input type="text" placeholder="Make"  name="make" value={input.make} onChange={handleInputChange} />
+                <input type="text" placeholder="Model"  name="model" value={input.model} onChange={handleInputChange} />
+                <button type="submit" onClick={handleSave}>Save</button>
+            </div>
+        </>
     )
 }
 
-export default Vehicle
+export default VehicleList

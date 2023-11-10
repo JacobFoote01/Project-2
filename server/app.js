@@ -2,8 +2,8 @@ import express from 'express'
 import ViteExpress from 'vite-express'
 import morgan from 'morgan'
 import session from 'express-session'
-import { Vehicle, User} from '../db/model.js'
-import * as controller from '../server/controller.js'
+import handlerFunctions from './handlerfunctions.js'
+
 
 const app = express()
 
@@ -24,49 +24,20 @@ function loginRequired(req, res, next) {
 
 //routes go here 
 
-app.get('/server/vehicle', async (req, res) => {
-    const allVehicle = await Vehicle.findAll();
-    res.json(allVehicle);
-  });
+app.get('/server/vehicle', handlerFunctions.allVehicles);
 
-  app.get('/server/vehicle/:vehicleId', async (req, res) => {
-    const { vehicleId } = req.params;
-    const vehicle = await Vehicle.findByPk(vehicleId);
-    res.json(vehicle);
-  });
+app.get('/server/vehicle/:vehicleId', handlerFunctions.getVehicle);
 
-//to create
-app.post('/server/auth', async (req, res) => {
-    const { email, password } = req.body;
-    const user = await User.findOne({ where: { email: email } });
-  
-    if (user && user.password === password) {
-      req.session.userId = user.userId;
-      res.json({ success: true });
-    } else {
-      res.json({ success: false });
-    }
-  });
+app.post('/server/auth', handlerFunctions.login);
 
-app.post('/server/logout', loginRequired, (req, res) => {
-    req.session.destroy();
-    res.json({ success: true });
-  });
+app.post('/server/logout', loginRequired, handlerFunctions.logout)
 
-app.post('/server/logout', (req, res) => {
-    if (!req.session.userId) {
-      res.status(401).json({ error: 'Unauthorized' });
-    } else {
-      req.session.destroy();
-      res.json({ success: true });
-    }
-  });
+app.post('/server/logout', handlerFunctions.loggingOut);
 
 //to delete
-app.delete('/vehicle:id', controller.removeVehicle)
+// app.delete('/vehicle:id', .removeVehicle)
 
 // for editing
-app.put('/vehicle', controller.updateVehicle)
+// app.put('/vehicle', .updateVehicle)
 
-//door to the server 
 ViteExpress.listen(app, 5173, () => console.log(`Welcome! Report to http://localhost:5173`))

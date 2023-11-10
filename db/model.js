@@ -27,6 +27,10 @@ User.init(
     type: DataTypes.STRING,
     allowNull: false,
   },
+  name:{
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
 },
   
 {
@@ -77,6 +81,9 @@ Maintenance.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    name:{
+      type: DataTypes.STRING
+    },
     difficulty:{
       type: DataTypes.INTEGER
     }
@@ -100,6 +107,9 @@ Modifications.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    name:{
+      type: DataTypes.STRING
+    },
     difficulty:{
       type: DataTypes.INTEGER
     },
@@ -122,6 +132,9 @@ ToDo.init(
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
+    },
+    name:{
+      type: DataTypes.STRING
     },
     difficulty:{
       type: DataTypes.INTEGER

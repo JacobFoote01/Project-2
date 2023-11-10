@@ -6,10 +6,6 @@ export default function LoginForm({ onLogin }) {
   const [emailValue, setEmailValue] = useState('');
   const [passwordValue, setPasswordValue] = useState('');
  
-  const goHome = () => {
-    redirect("/app")
-  }
-
   const Add = () => { 
     redirect("/add_user")
   }
@@ -39,7 +35,7 @@ export default function LoginForm({ onLogin }) {
         onChange={(e) => setPasswordValue(e.target.value)}
       />
       <br/>
-        <button type="submit" onClick={goHome}>Log In</button>
+        <button type="submit">Log In</button>
         <button type="register" onClick={Add}>Register here</button>
     </form>
   );

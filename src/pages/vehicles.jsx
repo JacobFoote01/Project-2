@@ -1,4 +1,5 @@
 import React from 'react';
+import { Row } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 
 function Vehicles() {
@@ -11,15 +12,12 @@ function Vehicles() {
  
   return (
     <>
-      <form className="vehicles" onClick={handleClick}>
-        Img Url: {}
-        <br/>
-        Year : {}
-        <br/>
-        Make : {}
-        <br/>
-        Model : {}
-      </form>
+      <table className="vehicles" onClick={handleClick}>
+        <Row>Image</Row>
+        <Row>Year:</Row>
+        <Row>Make:</Row>
+        <Row>Model:</Row>
+      </table>
     </>
   );
 }
