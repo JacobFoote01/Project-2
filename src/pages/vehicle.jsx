@@ -4,9 +4,6 @@ import { useNavigate } from "react-router-dom"
 function VehicleList() {
     const [input, setInput] = useState()
     const redirect = useNavigate()
-    const year = '1995'
-    const make = 'subaru'
-    const model = 'legacy'
 
 
     const handleInputChange = (e) => {
@@ -30,16 +27,15 @@ function VehicleList() {
 
     return(
         <>
+            <div className="Routing Buttons">
                 <button type="submit" onClick={Maintenance}>Maintenance</button>
                 <button type="submit" onClick={Mods}>Modifications</button>
                 <button type="submit" onClick={ToDo}>To Do</button>
+            </div>
             <div className="vehicle">            
-                <p>{year}</p>
-                <p>{make}</p>
-                <p>{model}</p>
-                <input type="text" placeholder="Year"  name="year" value={input.year} onChange={handleInputChange} />
-                <input type="text" placeholder="Make"  name="make" value={input.make} onChange={handleInputChange} />
-                <input type="text" placeholder="Model"  name="model" value={input.model} onChange={handleInputChange} />
+                <input type="text" placeholder="Year"  name="year" onChange={handleInputChange} />
+                <input type="text" placeholder="Make"  name="make" onChange={handleInputChange} />
+                <input type="text" placeholder="Model"  name="model" onChange={handleInputChange} />
                 <button type="submit" onClick={handleSave}>Save</button>
             </div>
         </>

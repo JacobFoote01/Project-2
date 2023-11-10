@@ -3,7 +3,8 @@ import { useState } from "react"
 function AddUser() {
 
     const [user, setUser] = useState({
-        email: "@",
+        email: "",
+        userName: "",
         password: "",
         confirmPassword: ""
     })

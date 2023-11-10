@@ -12,12 +12,13 @@ import Maintenance from './pages/maintenance.jsx';
 import ToDo from './pages/to_do.jsx'
 import Mods from './pages/mods.jsx';
 import './css/main.css'
+import { Root } from './pages/root.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
 
-  <Route path='/' element={<Login />} errorElement={<Error />}>
-    <Route index path='/navbar' element={<NavBar />}/>
+  <Route path='/' element={<Root />} errorElement={<Error />}>
+    <Route index element={<Login />}/>
     <Route path='/add_user' element={<AddUser />}/>
     <Route path='/app' element={<App />}/>
     <Route path='/logout' element={<Logout />}/>

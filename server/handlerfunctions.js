@@ -22,17 +22,11 @@ const handlerFunctions = {
         }
     },
     logout: (req, res) => {
+        console.log("logging out")
         req.session.destroy();
+        console.log('destroyed')
         res.json({ success: true });
-    },
-    loggingOut: (req, res) => {
-        if (!req.session.userId) {
-          res.status(401).json({ error: 'Unauthorized' });
-        } else {
-          req.session.destroy();
-          res.json({ success: true });
-        }
-      }
+    }
 }
 
 export default handlerFunctions

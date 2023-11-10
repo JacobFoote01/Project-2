@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row } from 'react-bootstrap';
+import { Container, Row } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 
 function Vehicles() {
@@ -12,12 +12,12 @@ function Vehicles() {
  
   return (
     <>
-      <table className="vehicles" onClick={handleClick}>
+      <Container className="vehicles" onClick={handleClick}>
         <Row>Image</Row>
         <Row>Year:</Row>
         <Row>Make:</Row>
         <Row>Model:</Row>
-      </table>
+      </Container>
     </>
   );
 }

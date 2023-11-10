@@ -7,9 +7,7 @@ export default function Login() {
 
   const handleLogin = async (e, formData) => {
     e.preventDefault()
-
     const res = await axios.post('/server/auth', formData)
-
     if (res.data.success) {
       navigate('/app')
     }
@@ -18,7 +16,7 @@ export default function Login() {
   return (
     <>
       <h1>Welcome to your Vehicle Log!</h1>
-      <h2>Log In</h2>
+      <br/>
       <LoginForm onLogin={handleLogin} />
     </>
   );

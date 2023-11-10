@@ -36,7 +36,7 @@ export default function LoginForm({ onLogin }) {
       />
       <br/>
         <button type="submit">Log In</button>
-        <button type="register" onClick={Add}>Register here</button>
+        <button onClick={Add}>Register here</button>
     </form>
   );
 }

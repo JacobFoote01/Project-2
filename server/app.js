@@ -32,8 +32,6 @@ app.post('/server/auth', handlerFunctions.login);
 
 app.post('/server/logout', loginRequired, handlerFunctions.logout)
 
-app.post('/server/logout', handlerFunctions.loggingOut);
-
 //to delete
 // app.delete('/vehicle:id', .removeVehicle)
 
