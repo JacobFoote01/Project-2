@@ -94,13 +94,13 @@ Maintenance.init(
   }
 )
     
-export class Modifications extends Model {
+export class Modification extends Model {
   [util.inspect.custom]() {
     return this.toJSON()
   }
 }
     
-Modifications.init(
+Modification.init(
   {
     modificationId:{
       type: DataTypes.INTEGER,
@@ -115,7 +115,7 @@ Modifications.init(
     },
   },
   {
-    modelName: 'modifications',
+    modelName: 'modification',
     sequelize: db,
   }
 )
@@ -149,7 +149,14 @@ ToDo.init(
   }
 )
 
-User.hasMany(Vehicle, { foreignKey: 'vehicleId' })
-Vehicle.hasMany(Maintenance, { foreignKey: 'maintenanceId' })
-Vehicle.hasMany(Modifications, { foreignKey: 'modificationId' })
-Vehicle.hasMany(ToDo, { foreignKey: 'toDoId' })
+User.hasMany(Vehicle, { foreignKey: 'userId' })
+Vehicle.belongsTo(User, { foreignKey: 'userId' })
+
+Vehicle.hasMany(Maintenance, { foreignKey: 'vehicleId' })
+Maintenance.belongsTo(Vehicle, { foreignKey: 'vehicleId' })
+
+Vehicle.hasMany(Modification, { foreignKey: 'vehicleId' })
+Modification.belongsTo(Vehicle, { foreignKey: 'vehicleId' })
+
+Vehicle.hasMany(ToDo, { foreignKey: 'vehicleId' })
+ToDo.belongsTo(Vehicle, { foreignKey: 'vehicleId' })

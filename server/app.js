@@ -24,13 +24,18 @@ function loginRequired(req, res, next) {
 
 //routes go here 
 
-app.get('/server/vehicle', handlerFunctions.allVehicles);
+app.get('/server/vehicle', loginRequired, handlerFunctions.allVehicles);
 
-app.get('/server/vehicle/:vehicleId', handlerFunctions.getVehicle);
+app.get('/server/vehicle/:vehicleId', loginRequired, handlerFunctions.getVehicle);
+
+app.get('/server/logout', loginRequired, handlerFunctions.logout)
 
 app.post('/server/auth', handlerFunctions.login);
 
-app.post('/server/logout', loginRequired, handlerFunctions.logout)
+app.post('/server/adduser', handlerFunctions.addUser)
+
+app.get('/server/sessionCheck', handlerFunctions.sessionCheck)
+
 
 //to delete
 // app.delete('/vehicle:id', .removeVehicle)

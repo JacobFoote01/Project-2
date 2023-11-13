@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import { Container, Row } from "react-bootstrap"
 
 function VehicleList() {
     const [input, setInput] = useState()
@@ -21,9 +22,6 @@ function VehicleList() {
     const ToDo = () => {
         redirect("/to_do")
     }
-    const handleSave = () => {
-        console.log('save')
-    }
 
     return(
         <>
@@ -33,10 +31,12 @@ function VehicleList() {
                 <button type="submit" onClick={ToDo}>To Do</button>
             </div>
             <div className="vehicle">            
-                <input type="text" placeholder="Year"  name="year" onChange={handleInputChange} />
-                <input type="text" placeholder="Make"  name="make" onChange={handleInputChange} />
-                <input type="text" placeholder="Model"  name="model" onChange={handleInputChange} />
-                <button type="submit" onClick={handleSave}>Save</button>
+                <Container className="vehicles">
+                    <Row>Image</Row>
+                    <Row>Year:</Row>
+                    <Row>Make:</Row>
+                    <Row>Model:</Row>
+                </Container>
             </div>
         </>
     )

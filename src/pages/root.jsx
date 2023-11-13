@@ -7,7 +7,6 @@ export const Root = () => {
   return (
     <>
         <NavBar/>
-        <hr />
         <Outlet/>
     </>
   )
