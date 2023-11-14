@@ -10,6 +10,8 @@ export default function Login() {
     const res = await axios.post('/server/auth', formData)
     if (res.data.success) {
       navigate('/app')
+    } else {
+      alert ('No user matches that Email or Password')
     }
   }
   

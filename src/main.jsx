@@ -1,10 +1,8 @@
 import React from 'react'
 import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom';
-import Logout from "./components/logout.jsx"
 import ReactDOM from 'react-dom/client'
 import Login from './pages/login.jsx';
 import App from '../App.jsx';
-import NavBar from './components/navbar.jsx';
 import AddVehicle from './pages/add_vehicle.jsx';
 import AddUser from './pages/add_user.jsx';
 import Vehicle from './pages/vehicle.jsx';
@@ -21,7 +19,6 @@ const router = createBrowserRouter(
     <Route index element={<Login />}/>
     <Route path='/add_user' element={<AddUser />}/>
     <Route path='/app' element={<App />}/>
-    <Route path='/logout' element={<Logout />}/>
     <Route path='/add_vehicle' element={<AddVehicle />}/>
     <Route path='/vehicle' element={<Vehicle />}/>
     <Route path='/mods' element={<Mods />}/>
