@@ -1,13 +1,18 @@
 import { useNavigate } from 'react-router-dom';
 import LoginForm from '../components/login_form';
 import axios from 'axios';
+import { useSessionCheck } from '../hooks/useSessionCheck';
 
 export default function Login() {
   const navigate = useNavigate()
 
+  useSessionCheck()
+
   const handleLogin = async (e, formData) => {
     e.preventDefault()
     const res = await axios.post('/server/auth', formData)
+
+    console.log(res.data)
     if (res.data.success) {
       navigate('/app')
     } else {

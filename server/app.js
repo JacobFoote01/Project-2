@@ -12,7 +12,7 @@ app.use(morgan('dev'))
 app.use(express.urlencoded({extended: false}))
 app.use(express.static('public'))
 app.use(express.json())
-app.use(session({ secret: 'gandolf', saveUninitialized: false, resave: false}))
+app.use(session({ secret: 'gandolf', saveUninitialized: true, resave: true}))
 
 function loginRequired(req, res, next) {
     if (!req.session.userId) {
@@ -26,11 +26,13 @@ function loginRequired(req, res, next) {
 
 app.get('/server/vehicles', handlerFunctions.allVehicles);
 
-// app.get('/server/vehicle/:vehicleId', handlerFunctions.getVehicle);
+app.get('/server/vehicle/:vehicleId', handlerFunctions.getVehicle);
 
 app.get('/server/logout', loginRequired, handlerFunctions.logout)
 
 app.get('/server/sessionCheck', handlerFunctions.sessionCheck)
+
+app.get('/server/user',  handlerFunctions.getUser)
 
 app.post('/server/auth', handlerFunctions.login);
 

@@ -2,21 +2,30 @@ import { Vehicle, User } from '../db/model.js'
 
 const handlerFunctions = {
     allVehicles: async (req, res) => {
-        const { user_id } = req.body
-        const allVehicles = await Vehicle.findAll(user_id);
-        res.json(allVehicles)
+        const { user } = req.session
+
+        try {
+            console.log(req.session)
+            const allVehicles = await Vehicle.findAll({where: {userId: user.userId}});
+            res.json(allVehicles)
+        } catch (error) {
+            console.log(error)
+        }
+
     },
-    // getVehicle: async (req, res) => {
-    //     const { vehicleId } = req.params;
-    //     const vehicle = await Vehicle.findByPk(vehicleId);
-    //     res.json(vehicle);
-    // },
+    getVehicle: async (req, res) => {
+        const { vehicleId } = req.params;
+        const vehicle = await Vehicle.findByPk(vehicleId);
+        res.json(vehicle);
+    }, 
     login: async (req, res) => {
         const { email, password } = req.body;
         const user = await User.findOne({ where: { email: email } });
       
         if (user && user.password === password) {
           req.session.userId = user.userId;
+          req.session.user = user;
+
           res.json({ success: true });
         } else {
           res.json({ success: false });
@@ -26,12 +35,20 @@ const handlerFunctions = {
         req.session.destroy();
         res.json({ success: true });
     },
+    getUser: async (req, res) => {
+        const {user} = req.session
+        if(!user) {
+            res.json({ success: false })
+            return
+        } 
+        res.json({ success: true, user })
+    },
     addUser: async (req, res) => {
         const { email } = req.body
         const user = await User.findOne({ where: { email: email }})
 
         if(user) { 
-            return(alert("This email already exists"))
+            return res.json({ success: false })
         } else {
             const user = await User.create({ 
                 email: req.body.email, 
@@ -43,31 +60,33 @@ const handlerFunctions = {
     },
     addVehicle: async (req, res) => {
         console.log(req.body)
-        const { user_id } = req.body
-        const vehicle = await Vehicle.findOne({ where: { userId: user_id}})
+        const { userId } = req.body
 
-        if(vehicle) {
-            return(alert('This vehicle already exists'))
-        } else {
+
             const vehicle = await Vehicle.create({
                 year: req.body.year,
                 make: req.body.make,
                 model: req.body.model,
+                userId: req.body.userId,
             })
-        }
+
         res.json({vehicle})
     },
     sessionCheck: async (req, res) => {
-        const { user_id } = req.session
-        if(!user_id){
-            res.json({ success: false })
+        const { userId } = req.session
+
+        console.log(req.session)
+
+
+        if(!userId){
+            res.json({ success: false, userId })
             return
         }
-        const user = await User.findOne({ where: { user_id: user_id }})
+        const user = await User.findOne({ where: { userId: userId }})
      
-        if(user && user.userId === user_id) {
-            req.session.userId = user.user_id;
-            res.json({ success: true , user_id});
+        if(user && user.userId === userId) {
+            req.session.userId = user.userId;
+            res.json({ success: true , userId});
         } else {
           res.json({ success: false });
         }

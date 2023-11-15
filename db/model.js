@@ -61,6 +61,13 @@ Vehicle.init(
     year:{
       type: DataTypes.INTEGER
     },
+    userId:{
+      type: DataTypes.INTEGER,
+      references: {
+        model: User,
+        key: 'user_id',
+      },
+    },
   },
   {
     modelName: 'vehicle',

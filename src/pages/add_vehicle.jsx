@@ -1,30 +1,31 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import { useUser } from '../hooks/useUser'
 
 function AddVehicle() {
  
     const redirect = useNavigate()
-
+    const user = useUser()
     const [vehicle, setVehicle] = useState({
         img: "",
         year: "",
         make: "",
         model: "",
     })
-    const [user_id, setUser_Id] = useState('')
+    // const [user_id, setUser_Id] = useState('')
 
-    const sessionCheck = async () => {
-        const res = await axios.get('/server/sessionCheck')
-        console.log(res.data)
-        if (res.data.success){ 
-            setUser_Id(res.data.user_id)
-        } 
-      }
+    // const sessionCheck = async () => {
+    //     const res = await axios.get('/server/sessionCheck')
+    //     console.log(res.data)
+    //     if (res.data.success){ 
+    //         setUser_Id(res.data.user_id)
+    //     } 
+    //   }
     
-      useEffect(() => {
-        sessionCheck()
-      }, [])
+    //   useEffect(() => {
+    //     sessionCheck()
+    //   }, [])
 
     const handleClick = (e) => {
         e.preventDefault()
@@ -48,7 +49,7 @@ function AddVehicle() {
                 year: vehicle.year,
                 make: vehicle.make,
                 model: vehicle.model,
-                user_id: user_id,
+                userId: user.userId,
             }
 
             const res = await axios.post('/server/addVehicle', newVehicle)

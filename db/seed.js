@@ -15,7 +15,7 @@ const Prizm = await Vehicle.create({
     make: "Geo",
     model: "Prizm",
     year: 1995,
-    user_id: 1,
+    userId: 1,
 })
 
 const oilChange = await Maintenance.create({

@@ -17,25 +17,25 @@ export default function NavBar() {
     }
   } 
   
-  const sessionCheck = async () => {
-    const res = await axios.get('/server/sessionCheck')
-    console.log(res.data)
-    if (res.data.success){
-      navigate('/app')
-    } else {
-      navigate('/')
-    }
-  }
+  // const sessionCheck = async () => {
+  //   const res = await axios.get('/server/sessionCheck')
+  //   console.log(res.data)
+  //   if (res.data.success){
+  //     navigate('/app')
+  //   } else {
+  //     navigate('/')
+  //   }
+  // }
 
-  useEffect(() => {
-    sessionCheck()
-  }, [])
+  // useEffect(() => {
+  //   sessionCheck()
+  // }, [])
 
   return (
     <>
     <Navbar expand='lg'>
       <Container>
-        <Navbar.Brand href="/app" onClick={sessionCheck} >Vehicle Log</Navbar.Brand>
+        <Navbar.Brand href="/app"  >Vehicle Log</Navbar.Brand>
             <Navbar.Collapse className="justify-content-end">
             <Nav className="me-auto">
                 <Nav.Link href='/'>Login</Nav.Link>
@@ -48,3 +48,5 @@ export default function NavBar() {
     </>
   );
 }
+
+

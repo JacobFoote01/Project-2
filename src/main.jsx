@@ -20,7 +20,7 @@ const router = createBrowserRouter(
     <Route path='/add_user' element={<AddUser />}/>
     <Route path='/app' element={<App />}/>
     <Route path='/add_vehicle' element={<AddVehicle />}/>
-    <Route path='/vehicle' element={<Vehicle />}/>
+    <Route path='/vehicle/:vehicleId' element={<Vehicle />}/>
     <Route path='/mods' element={<Mods />}/>
     <Route path='/maintenance' element={<Maintenance />}/>
     <Route path='/to_do' element={<ToDo />}/>
