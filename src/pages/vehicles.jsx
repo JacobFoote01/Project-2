@@ -23,6 +23,17 @@ function Vehicles() {
     redirect(`/vehicle/${vehicleId}`)
   }
   
+  const handleDelete = async (vehicleId) => {
+    try{
+      const res = await axios.delete(`/server/${vehicleId}`)
+      if(res.data.success){
+        redirect('/app')
+      }
+    } catch (error) {
+      console.log('Error deleting vehicle:', error)
+    }
+  }
+
   return (
     <>
       <Container className="vehicles" >
@@ -32,6 +43,7 @@ function Vehicles() {
           <Row> {vehicle.year}</Row>
           <Row> {vehicle.make}</Row>
           <Row> {vehicle.model}</Row>
+          <button type='submit' onClick={() => handleDelete(vehicle.vehicleId)}>Delete</button>
           </div>
         ))}
       </Container>

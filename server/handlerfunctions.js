@@ -5,7 +5,6 @@ const handlerFunctions = {
         const { user } = req.session
 
         try {
-            console.log(req.session)
             const allVehicles = await Vehicle.findAll({where: {userId: user.userId}});
             res.json(allVehicles)
         } catch (error) {
@@ -59,9 +58,7 @@ const handlerFunctions = {
         res.json({user})
     },
     addVehicle: async (req, res) => {
-        console.log(req.body)
         const { userId } = req.body
-
 
             const vehicle = await Vehicle.create({
                 year: req.body.year,
@@ -72,11 +69,14 @@ const handlerFunctions = {
 
         res.json({vehicle})
     },
+    deleteVehicle: async (req, res) => {
+        const { vehicleId } = req.params
+    
+        await Vehicle.destroy({ where: {vehicleId: vehicleId}})
+        return res.json({ success: true })
+    },
     sessionCheck: async (req, res) => {
         const { userId } = req.session
-
-        console.log(req.session)
-
 
         if(!userId){
             res.json({ success: false, userId })

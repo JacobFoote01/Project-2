@@ -12,7 +12,6 @@ export default function Login() {
     e.preventDefault()
     const res = await axios.post('/server/auth', formData)
 
-    console.log(res.data)
     if (res.data.success) {
       navigate('/app')
     } else {

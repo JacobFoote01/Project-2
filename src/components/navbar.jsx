@@ -1,7 +1,7 @@
 import { Container, Navbar, Nav } from 'react-bootstrap';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { useEffect } from 'react';
+
 
 
 export default function NavBar() {
@@ -16,20 +16,6 @@ export default function NavBar() {
       alert('You must be logged in to Log Out')
     }
   } 
-  
-  // const sessionCheck = async () => {
-  //   const res = await axios.get('/server/sessionCheck')
-  //   console.log(res.data)
-  //   if (res.data.success){
-  //     navigate('/app')
-  //   } else {
-  //     navigate('/')
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   sessionCheck()
-  // }, [])
 
   return (
     <>

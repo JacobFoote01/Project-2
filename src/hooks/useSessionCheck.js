@@ -10,7 +10,6 @@ export const useSessionCheck =  () => {
     
     const res = await axios.get('/server/sessionCheck')
 
-    console.log(res.data)
 
     if(!res.data.success) {
       return navigate('/')

@@ -40,8 +40,7 @@ app.post('/server/addUser', handlerFunctions.addUser)
 
 app.post('/server/addVehicle', handlerFunctions.addVehicle)
 
-//to delete
-// app.delete('/vehicle:id', .removeVehicle)
+app.delete('/server/:vehicleId', handlerFunctions.deleteVehicle)
 
 // for editing
 // app.put('/vehicle', .updateVehicle)

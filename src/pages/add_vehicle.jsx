@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { useUser } from '../hooks/useUser'
@@ -13,20 +13,7 @@ function AddVehicle() {
         make: "",
         model: "",
     })
-    // const [user_id, setUser_Id] = useState('')
-
-    // const sessionCheck = async () => {
-    //     const res = await axios.get('/server/sessionCheck')
-    //     console.log(res.data)
-    //     if (res.data.success){ 
-    //         setUser_Id(res.data.user_id)
-    //     } 
-    //   }
     
-    //   useEffect(() => {
-    //     sessionCheck()
-    //   }, [])
-
     const handleClick = (e) => {
         e.preventDefault()
         const {name, value} = e.target
