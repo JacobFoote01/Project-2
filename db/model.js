@@ -52,6 +52,9 @@ Vehicle.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    img:{
+      type:DataTypes.STRING
+    },
     make:{
       type: DataTypes.STRING
     },
@@ -93,7 +96,14 @@ Maintenance.init(
     },
     difficulty:{
       type: DataTypes.INTEGER
-    }
+    },
+    vehicleId:{
+      type: DataTypes.INTEGER,
+      references: {
+        model: Vehicle,
+        key: 'vehicle_id',
+      },
+    },
   },
   {
     modelName: 'maintenance',
@@ -119,6 +129,13 @@ Modification.init(
     },
     difficulty:{
       type: DataTypes.INTEGER
+    },
+    vehicleId:{
+      type: DataTypes.INTEGER,
+      references: {
+        model: Vehicle,
+        key: 'vehicle_id',
+      },
     },
   },
   {
@@ -148,7 +165,14 @@ ToDo.init(
     },
     dueDate:{
       type: DataTypes.INTEGER
-    },    
+    },
+    vehicleId:{
+      type: DataTypes.INTEGER,
+      references: {
+        model: Vehicle,
+        key: 'vehicle_id',
+      },
+    },  
   },
   {
     modelName: 'todo',

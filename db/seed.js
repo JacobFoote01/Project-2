@@ -30,7 +30,14 @@ const lower = await Modification.create({
     vehicleId: 1,
 })
 
-const brakes = await ToDo.create({
+const brakes = await Maintenance.create({
+    difficulty: 2,
+    dueDate: 12_10_23,
+    name: "brake job",
+    vehicleId: 1,
+})
+
+const brakeJob = await ToDo.create({
     difficulty: 2,
     dueDate: 12_10_23,
     name: "brake job",

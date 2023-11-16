@@ -14,6 +14,7 @@ function AddVehicle() {
         model: "",
     })
     
+    //still having issues with the image url's not saving. 
     const handleClick = (e) => {
         e.preventDefault()
         const {name, value} = e.target
@@ -26,13 +27,14 @@ function AddVehicle() {
     const handleSave = async (e) => {
         try{
             e.preventDefault
-            const { year, make, model } = vehicle
+            const { img, year, make, model } = vehicle
 
-            if(!year.trim() || !make.trim() || !model.trim()) {
+            if( !year.trim() || !make.trim() || !model.trim()) {
                 alert('Please fill in all fields.')
                 return
             }
             const newVehicle = {
+                img: vehicle.img,
                 year: vehicle.year,
                 make: vehicle.make,
                 model: vehicle.model,

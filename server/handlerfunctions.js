@@ -61,6 +61,7 @@ const handlerFunctions = {
         const { userId } = req.body
 
             const vehicle = await Vehicle.create({
+                img: req.body.img,
                 year: req.body.year,
                 make: req.body.make,
                 model: req.body.model,
@@ -71,27 +72,47 @@ const handlerFunctions = {
     },
     deleteVehicle: async (req, res) => {
         const { vehicleId } = req.params
-    
+        
         await Vehicle.destroy({ where: {vehicleId: vehicleId}})
         return res.json({ success: true })
     },
+    editVehicle: async (req, res) => {
+        const { vehicleId } = req.params
+
+        const vehicle = await Vehicle.findOne({ where: {vehicleId: vehicleId}})
+        if(vehicle) {
+            return 
+        }
+        //work on this section of the edit
+        
+    },
     sessionCheck: async (req, res) => {
         const { userId } = req.session
-
+        
         if(!userId){
             res.json({ success: false, userId })
             return
         }
         const user = await User.findOne({ where: { userId: userId }})
-     
+        
         if(user && user.userId === userId) {
             req.session.userId = user.userId;
             res.json({ success: true , userId});
         } else {
-          res.json({ success: false });
+            res.json({ success: false });
         }
-    }
-
+    },
+    addModification: async (req, res) => {
+        const { vehicleId } = req.body
+    
+            const modification = await modification.create({
+                name: req.body.name,
+                difficulty: req.body.difficulty,
+            })
+    
+        res.json({modification})
+    },
+    
 }
 
 export default handlerFunctions

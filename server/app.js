@@ -40,9 +40,10 @@ app.post('/server/addUser', handlerFunctions.addUser)
 
 app.post('/server/addVehicle', handlerFunctions.addVehicle)
 
+app.post('/server/addModification', handlerFunctions.addModification)
+
 app.delete('/server/:vehicleId', handlerFunctions.deleteVehicle)
 
-// for editing
-// app.put('/vehicle', .updateVehicle)
+app.put('/server/:vehicleId', handlerFunctions.editVehicle)
 
 ViteExpress.listen(app, 5173, () => console.log(`Welcome! Report to http://localhost:5173`))
