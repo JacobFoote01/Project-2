@@ -6,7 +6,6 @@ import axios from "axios";
 function Vehicles() {
   const [vehicles, setVehicles] = useState([]);
   const [isEditing, setIsEditing] = useState(false);
-  const [editedVehicle, setEditedVehicle] = useState({});
   const [selectedVehicle, setSelectedVehicle] = useState({
     img: "",
     year: "",
@@ -61,7 +60,7 @@ function Vehicles() {
 
   return (
     <>
-      <Container className="vehicles">
+      <Container className="vehicles" key={vehicles.vehicleId}>
         {vehicles.map((v) => (
           <Vehicle
             vehicle={v}

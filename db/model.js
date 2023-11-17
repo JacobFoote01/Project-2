@@ -91,6 +91,9 @@ Maintenance.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    img:{
+      type: DataTypes.STRING
+    },
     name:{
       type: DataTypes.STRING
     },
@@ -110,19 +113,22 @@ Maintenance.init(
     sequelize: db,
   }
 )
-    
+
 export class Modification extends Model {
   [util.inspect.custom]() {
     return this.toJSON()
   }
 }
-    
+
 Modification.init(
   {
     modificationId:{
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
+    },
+    img:{
+      type: DataTypes.STRING
     },
     name:{
       type: DataTypes.STRING

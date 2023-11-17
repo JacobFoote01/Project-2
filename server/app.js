@@ -7,7 +7,6 @@ import handlerFunctions from './handlerfunctions.js'
 
 const app = express()
 
-//middleware
 app.use(morgan('dev'))
 app.use(express.urlencoded({extended: false}))
 app.use(express.static('public'))
@@ -22,8 +21,6 @@ function loginRequired(req, res, next) {
     }
   }
 
-//routes go here 
-
 app.get('/server/vehicles', handlerFunctions.allVehicles);
 
 app.get('/server/vehicle/:vehicleId', handlerFunctions.getVehicle);
@@ -32,7 +29,9 @@ app.get('/server/logout', loginRequired, handlerFunctions.logout)
 
 app.get('/server/sessionCheck', handlerFunctions.sessionCheck)
 
-app.get('/server/user',  handlerFunctions.getUser)
+app.get('/server/user', handlerFunctions.getUser)
+
+app.get('/server/maintenance/:vehicleId', handlerFunctions.getMaintenance)
 
 app.post('/server/auth', handlerFunctions.login);
 

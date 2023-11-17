@@ -13,7 +13,6 @@ function AddVehicle() {
     model: "",
   });
 
-  //still having issues with the image url's not saving.
   const handleClick = (e) => {
     e.preventDefault();
     const { name, value } = e.target;

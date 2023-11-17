@@ -14,13 +14,12 @@ function VehicleList() {
       const res = await axios.get("/server/vehicle/" + vehicleId);
       setVehicle(res.data);
     } catch (error) {
-      console.log("Error fetching data:", error);
+      console.log("Error fetching vehicle:", error);
     }
   };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    // set the state of the input
     setInput({ ...input, [name]: value });
   };
 
@@ -40,17 +39,6 @@ function VehicleList() {
 
   return (
     <>
-      <div className="Routing Buttons">
-        <button type="submit" onClick={Maintenance}>
-          Maintenance
-        </button>
-        <button type="submit" onClick={Mods}>
-          Modifications
-        </button>
-        <button type="submit" onClick={ToDo}>
-          To Do
-        </button>
-      </div>
       <div className="vehicle">
         <Container className="vehicles">
           <Row>
@@ -61,10 +49,21 @@ function VehicleList() {
               src={vehicle?.img}
             />
           </Row>
-          <Row>Year: {vehicle?.year}</Row>
-          <Row>Make: {vehicle?.make}</Row>
-          <Row>Model: {vehicle?.model}</Row>
+          <Row>{vehicle?.year}</Row>
+          <Row>{vehicle?.make}</Row>
+          <Row>{vehicle?.model}</Row>
         </Container>
+      </div>
+      <div className="Routing Buttons">
+        <button type="submit" onClick={Maintenance}>
+          Maintenance
+        </button>
+        <button type="submit" onClick={Mods}>
+          Modifications
+        </button>
+        <button type="submit" onClick={ToDo}>
+          To Do
+        </button>
       </div>
     </>
   );
