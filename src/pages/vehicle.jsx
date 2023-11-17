@@ -24,7 +24,7 @@ function VehicleList() {
   };
 
   const Maintenance = () => {
-    redirect("/maintenance");
+    redirect("/maintenance/" + vehicleId);
   };
   const Mods = () => {
     redirect("/mods");

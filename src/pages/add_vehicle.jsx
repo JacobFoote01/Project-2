@@ -25,7 +25,7 @@ function AddVehicle() {
   const handleSave = async (e) => {
     try {
       e.preventDefault;
-      const { img, year, make, model } = vehicle;
+      const { year, make, model } = vehicle;
 
       if (!year.trim() || !make.trim() || !model.trim()) {
         alert("Please fill in all fields.");

@@ -6,18 +6,18 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import ReactDOM from "react-dom/client";
-import Login from "./pages/login.jsx";
-import App from "../App.jsx";
-import AddVehicle from "./pages/add_vehicle.jsx";
-import AddUser from "./pages/add_user.jsx";
-import Vehicle from "./pages/vehicle.jsx";
-import Maintenance from "./pages/maintenance.jsx";
-import ToDo from "./pages/to_do.jsx";
-import Mods from "./pages/mods.jsx";
+import Login from "./pages/login";
+import App from "../App";
+import AddVehicle from "./pages/add_vehicle";
+import AddUser from "./pages/add_user";
+import Vehicle from "./pages/vehicle";
+import Maintenance from "./pages/maintenance";
+import ToDo from "./pages/to_do";
+import Mods from "./pages/mods";
 import "./css/main.css";
-import { Root } from "./pages/root.jsx";
-import AddModifications from "./pages/add_modifications.jsx";
-import AddMaintenance from "./pages/add_maintenance.jsx";
+import { Root } from "./pages/root";
+import AddModifications from "./pages/add_modifications";
+import AddMaintenance from "./pages/add_maintenance";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -28,7 +28,7 @@ const router = createBrowserRouter(
       <Route path="/add_vehicle" element={<AddVehicle />} />
       <Route path="/vehicle/:vehicleId" element={<Vehicle />} />
       <Route path="/mods" element={<Mods />} />
-      <Route path="/maintenance" element={<Maintenance />} />
+      <Route path="/maintenance/:vehicleId" element={<Maintenance />} />
       <Route path="/to_do" element={<ToDo />} />
       <Route path="/add_maintenance" element={<AddMaintenance />} />
       <Route path="/add_modifications" element={<AddModifications />} />

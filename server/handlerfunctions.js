@@ -1,5 +1,4 @@
-import { Vehicle, User } from '../db/model.js'
-import Maintenance from '../src/pages/maintenance.jsx';
+import { Vehicle, User, Maintenance, Modification, ToDo } from '../db/model.js'
 
 const handlerFunctions = {
     allVehicles: async (req, res) => {
@@ -33,7 +32,8 @@ const handlerFunctions = {
     }, 
     getMaintenance: async (req, res) => {
         const { vehicleId } = req.params
-        const maintenance = await Maintenance.findAll(vehicleId)
+        console.log(req.params)
+        const maintenance = await Maintenance.findAll({ where: { vehicleId: vehicleId }})
         res.json(maintenance)
     },
     getUser: async (req, res) => {
@@ -70,6 +70,23 @@ const handlerFunctions = {
 
         res.json({vehicle})
     },
+    addMaintenance: async (req, res) => {
+        const { vehicleId } = req.body
+        const maintenance = await Maintenance.create({
+            img: req.body.img,
+            name: req.body.img,
+            difficulty: req.body.difficulty,
+        })
+        res.json({maintenance})
+    },
+    addModification: async (req, res) => {
+        const { vehicleId } = req.body
+            const modification = await modification.create({
+                name: req.body.name,
+                difficulty: req.body.difficulty,
+            })
+        res.json({modification})
+    },
     deleteVehicle: async (req, res) => {
         const { vehicleId } = req.params
         await Vehicle.destroy({ where: {vehicleId: vehicleId}})
@@ -77,6 +94,7 @@ const handlerFunctions = {
     },
     editVehicle: async (req, res) => {
         const { vehicleId } = req.params
+        console.log(vehicleId)
         try {
             const vehicle = await Vehicle.findOne({ where: {vehicleId: vehicleId}})
             if(vehicle) {
@@ -106,14 +124,6 @@ const handlerFunctions = {
         } else {
             res.json({ success: false });
         }
-    },
-    addModification: async (req, res) => {
-        const { vehicleId } = req.body
-            const modification = await modification.create({
-                name: req.body.name,
-                difficulty: req.body.difficulty,
-            })
-        res.json({modification})
     },
 }
 export default handlerFunctions

@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 function Vehicles() {
+  const redirect = useNavigate();
   const [vehicles, setVehicles] = useState([]);
   const [isEditing, setIsEditing] = useState(false);
   const [selectedVehicle, setSelectedVehicle] = useState({
@@ -19,12 +20,11 @@ function Vehicles() {
         const res = await axios.get("/server/vehicles");
         setVehicles(res.data);
       } catch (error) {
-        console.error("Error fetching data:", error);
+        console.error("Error fetching vehicles:", error);
       }
     };
     fetchVehicles();
   }, []);
-  const redirect = useNavigate();
 
   const handleClick = (vehicleId) => {
     redirect(`/vehicle/${vehicleId}`);
