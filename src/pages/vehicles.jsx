@@ -1,112 +1,171 @@
-import React, { useState, useEffect } from 'react';
-import { Container, Row } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import { Container, Row } from "react-bootstrap";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function Vehicles() {
-  const [vehicles, setVehicles] = useState([])
-  const [editedVehicle, setEditedVehicle] = useState({})
-  const [vehicle, setVehicle] = useState({
-    img:'',
-    year:'',
-    make:'',
-    model:'',
-  })
+  const [vehicles, setVehicles] = useState([]);
+  const [isEditing, setIsEditing] = useState(false);
+  const [editedVehicle, setEditedVehicle] = useState({});
+  const [selectedVehicle, setSelectedVehicle] = useState({
+    img: "",
+    year: "",
+    make: "",
+    model: "",
+  });
 
   useEffect(() => {
     const fetchVehicles = async () => {
-      try{
-        const res = await axios.get('/server/vehicles')
-        setVehicles(res.data)
+      try {
+        const res = await axios.get("/server/vehicles");
+        setVehicles(res.data);
       } catch (error) {
-        console.error('Error fetching data:', error)
+        console.error("Error fetching data:", error);
       }
-    }
-    fetchVehicles()
-  }, [])
-  const redirect = useNavigate()
-  
+    };
+    fetchVehicles();
+  }, []);
+  const redirect = useNavigate();
+
   const handleClick = (vehicleId) => {
-    redirect(`/vehicle/${vehicleId}`)
-  }
-  
+    redirect(`/vehicle/${vehicleId}`);
+  };
+
+  const handleEdit = (vehicle) => {
+    setSelectedVehicle(vehicle);
+    setIsEditing(true);
+  };
+
   const handleDelete = async (vehicleId) => {
-    try{
-      const res = await axios.delete(`/server/${vehicleId}`)
-      if(res.data.success){
-        redirect('/app')
+    try {
+      const res = await axios.delete(`/server/vehicle/${vehicleId}`);
+      if (res.data.success) {
+        location.href = "/app";
       }
     } catch (error) {
-      console.log('Error deleting vehicle:', error)
+      console.log("Error deleting vehicle:", error);
     }
-  }
+  };
 
-  // const fetchVehicleForEdit = async (vehicleId) => {
-  //   try{
-  //     const res = await axios.get(`/server/vehicle/${vehicleId}`)
-  //     const fetchedVehicleData = res.data
-  //     setEditedVehicle(fetchedVehicleData)
-  //     setVehicle(fetchedVehicleData)
-  //   } catch (error) {
-  //     console.log('Error fetching vehicle for edit:', error)
-   // }
- // }
+  const handleSave = async (vehicle) => {
+    try {
+      await axios.put(`/server/vehicle/${vehicle.vehicleId}`, vehicle);
+      location.href = "/app";
+    } catch (error) {
+      console.log("Error Updating Vehicle:", error);
+    }
 
-  // const handleEdit = async () => {
-  //   try{
-  //     await axios.put(`/server/${editedVehicle.vehicleId}`, vehicle)
-  //   } catch (error) {
-  //     console.log('Error Updating Vehicle:', error)
-  //   }
-  //}
-
-  // useEffect(() => {
-  //   fetchVehicleForEdit(editedVehicle.vehicleId)
-  // }, [editedVehicle.vehicleId])
+    setIsEditing(false);
+    setSelectedVehicle(null);
+  };
 
   return (
     <>
-      <Container className="vehicles" >
-        {vehicles.map((vehicle) => (
-          <div key={vehicle.vehicleId} onClick={() => handleClick(vehicle.vehicleId)}>
-          <Row>Image</Row>
-          <Row> {vehicle.year}</Row>
-          <Row> {vehicle.make}</Row>
-          <Row> {vehicle.model}</Row>
-          <button onClick={() => handleDelete(vehicle.vehicleId)}>Delete</button>
-          <button onClick={() => fetchVehicleForEdit(vehicle.vehicleId)}>Edit</button>
-          </div>
+      <Container className="vehicles">
+        {vehicles.map((v) => (
+          <Vehicle
+            vehicle={v}
+            isEditingVehicle={
+              isEditing && v.vehicleId === selectedVehicle.vehicleId
+            }
+            onClick={() => handleClick(v.vehicleId)}
+            onEdit={() => handleEdit(v)}
+            onDelete={() => handleDelete(v.vehicleId)}
+            onSave={(vehicle) => handleSave(vehicle)}
+          />
         ))}
       </Container>
     </>
   );
 }
 
-{/* <form>
-  <input 
-  type='text' 
-  placeholder='Image Url' 
-  value={vehicle.img} 
-  onChange={(e) => setVehicle({...vehicle, img: e.target.value})}
-  />
-  <input 
-  type='text' 
-  placeholder='Year' 
-  value={vehicle.year} 
-  onChange={(e) => setVehicle({...vehicle, year: e.target.value})}
-  />
-  <input 
-  type='text' 
-  placeholder='Make' 
-  value={vehicle.make} 
-  onChange={(e) => setVehicle({...vehicle, make: e.target.value})}
-  />
-  <input 
-  type='text' 
-  placeholder='Model' 
-  value={vehicle.model} 
-  onChange={(e) => setVehicle({...vehicle, model: e.target.value})}
-  />
-</form>
-<button onClick={handleEdit}>Save Changes</button> */}
-export default Vehicles
+function Vehicle({
+  vehicle,
+  isEditingVehicle,
+  onClick,
+  onDelete,
+  onEdit,
+  onSave,
+}) {
+  const [newVehicle, setNewVehicle] = useState(vehicle);
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setNewVehicle((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
+  const handleCancel = () => {
+    setNewVehicle(vehicle);
+    setIsEditing(false);
+  };
+
+  return (
+    <>
+      <div key={newVehicle.vehicleId} onClick={!isEditingVehicle && onClick}>
+        <Row>
+          {" "}
+          {!isEditingVehicle && (
+            <img
+              style={{
+                width: "20rem",
+              }}
+              src={vehicle?.img}
+            />
+          )}
+          {isEditingVehicle && (
+            <input
+              className={
+                isEditingVehicle ? "input--editing" : "input--not-editing"
+              }
+              name="img"
+              value={newVehicle.img}
+              onChange={handleChange}
+            />
+          )}
+        </Row>
+        <Row>
+          <input
+            className={
+              isEditingVehicle ? "input--editing" : "input--not-editing"
+            }
+            name="year"
+            value={newVehicle.year}
+            onChange={handleChange}
+          />
+        </Row>
+        <Row>
+          <input
+            className={
+              isEditingVehicle ? "input--editing" : "input--not-editing"
+            }
+            name="make"
+            value={newVehicle.make}
+            onChange={handleChange}
+          />
+        </Row>
+        <Row>
+          <input
+            className={
+              isEditingVehicle ? "input--editing" : "input--not-editing"
+            }
+            name="model"
+            value={newVehicle.model}
+            onChange={handleChange}
+          />
+        </Row>
+      </div>
+      <button onClick={onDelete}>Delete</button>
+      {!isEditingVehicle && <button onClick={onEdit}>Edit</button>}
+      {isEditingVehicle && <button onClick={handleCancel}>Cancel</button>}
+      {isEditingVehicle && (
+        <button onClick={() => onSave(newVehicle)}>Save</button>
+      )}
+    </>
+  );
+}
+
+export default Vehicles;

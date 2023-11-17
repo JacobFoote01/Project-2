@@ -19,3 +19,12 @@
     margin: center;
     padding: 20px;
 }
+
+.input--editing {}
+.input--not-editing {
+    background: none;
+    border: none;
+    cursor: text;
+    color: white;
+    pointer-events: none;
+}

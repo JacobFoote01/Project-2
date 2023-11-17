@@ -79,11 +79,33 @@ const handlerFunctions = {
     editVehicle: async (req, res) => {
         const { vehicleId } = req.params
 
-        const vehicle = await Vehicle.findOne({ where: {vehicleId: vehicleId}})
-        if(vehicle) {
-            return 
+        console.log({
+            ...req.body,
+            vehicleId
+        })
+
+        try {
+            const vehicle = await Vehicle.findOne({ where: {vehicleId: vehicleId}})
+    
+            if(vehicle) {
+                vehicle.update({
+                    img: req.body.img,
+                    year: req.body.year,
+                    make: req.body.make,
+                    model: req.body.model,
+                })
+                res.json({vehicle})
+            }
+
+        } catch (error) {
+            console.log(error)
+            res.status(404).json({ success: false, error })
         }
-        //work on this section of the edit
+
+
+
+
+      
         
     },
     sessionCheck: async (req, res) => {
