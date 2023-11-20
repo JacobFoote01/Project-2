@@ -22,9 +22,31 @@ const AddMaintenance = () => {
     });
   };
 
+  // const handleSave = async (e) => {
+  //   try {
+  //     e.preventDefault();
+  //     const { name, difficulty } = maintenance;
+
+  //     if (!name.trim() || !difficulty.trim()) {
+  //       alert("Please fill in all fields.");
+  //       return;
+  //     }
+  //     const newMaintenance = {
+  //       img: maintenance.img,
+  //       name: maintenance.name,
+  //       difficulty: maintenance.difficulty,
+  //     };
+
+  //     const res = await axios.post("/server/addMaintenance", newMaintenance);
+  //   } catch (error) {
+  //     console.log("Error creating Maintenance:", error);
+  //   }
+  //   return redirect(`/vehicle/${vehicleId}`);
+  // };
+
   const handleSave = async (e) => {
     try {
-      e.preventDefault;
+      e.preventDefault();
       const { name, difficulty } = maintenance;
 
       if (!name.trim() || !difficulty.trim()) {
@@ -38,10 +60,10 @@ const AddMaintenance = () => {
       };
 
       const res = await axios.post("/server/addMaintenance", newMaintenance);
+      redirect(`/vehicle/${vehicleId}`);
     } catch (error) {
       console.log("Error creating Maintenance:", error);
     }
-    return redirect(`/vehicle/${vehicleId}`);
   };
 
   return (
@@ -50,9 +72,14 @@ const AddMaintenance = () => {
         <h3>Img Url :</h3>
         <input type="text" name="img" id="img" onChange={handleClick} />
         <h3>Name :</h3>
-        <input type="text" name="year" id="year" onChange={handleClick} />
+        <input type="text" name="name" id="name" onChange={handleClick} />
         <h3>Difficulty :</h3>
-        <input type="text" name="make" id="make" onChange={handleClick} />
+        <input
+          type="text"
+          name="difficulty"
+          id="difficulty"
+          onChange={handleClick}
+        />
       </form>
       <br />
       <button className="save" onClick={handleSave}>

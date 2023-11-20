@@ -7,8 +7,10 @@ const handlerFunctions = {
             const allVehicles = await Vehicle.findAll({where: {userId: user.userId}});
             res.json(allVehicles)
         } catch (error) {
-            console.log(error)
+            console.log(error);
+            res.status(500).json({ success: false, error: "Internal Server Error" });
         }
+        
     },
     login: async (req, res) => {
         const { email, password } = req.body;
@@ -74,7 +76,7 @@ const handlerFunctions = {
         const { vehicleId } = req.body
         const maintenance = await Maintenance.create({
             img: req.body.img,
-            name: req.body.img,
+            name: req.body.name,
             difficulty: req.body.difficulty,
         })
         res.json({maintenance})
@@ -107,9 +109,10 @@ const handlerFunctions = {
                 res.json({vehicle})
             }
         } catch (error) {
-            console.log(error)
-            res.status(404).json({ success: false, error })
+            console.log(error);
+            res.status(500).json({ success: false, error: "Internal Server Error" });
         }
+        
     },
     sessionCheck: async (req, res) => {
         const { userId } = req.session
