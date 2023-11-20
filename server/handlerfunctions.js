@@ -73,11 +73,11 @@ const handlerFunctions = {
         res.json({vehicle})
     },
     addMaintenance: async (req, res) => {
-        const { vehicleId } = req.body
         const maintenance = await Maintenance.create({
             img: req.body.img,
             name: req.body.name,
             difficulty: req.body.difficulty,
+            vehicleId: req.body.vehicleId,
         })
         res.json({maintenance})
     },
@@ -92,6 +92,11 @@ const handlerFunctions = {
     deleteVehicle: async (req, res) => {
         const { vehicleId } = req.params
         await Vehicle.destroy({ where: {vehicleId: vehicleId}})
+        return res.json({ success: true })
+    },
+    deleteMaintenance: async (req, res) => {
+        const { maintenanceId } = req.params
+        await Maintenance.destroy({ where: {maintenanceId: maintenanceId}})
         return res.json({ success: true })
     },
     editVehicle: async (req, res) => {

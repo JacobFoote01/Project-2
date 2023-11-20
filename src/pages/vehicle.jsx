@@ -29,9 +29,9 @@ function VehicleList() {
   const Mods = () => {
     redirect("/mods");
   };
-  const ToDo = () => {
-    redirect("/to_do");
-  };
+  // const ToDo = () => {
+  //   redirect("/to_do");
+  // };
 
   useEffect(() => {
     getVehicle();
@@ -61,9 +61,9 @@ function VehicleList() {
         <button type="submit" onClick={Mods}>
           Modifications
         </button>
-        <button type="submit" onClick={ToDo}>
+        {/* <button type="submit" onClick={ToDo}>
           To Do
-        </button>
+        </button> */}
       </div>
     </>
   );

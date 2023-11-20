@@ -24,7 +24,7 @@ function AddVehicle() {
 
   const handleSave = async (e) => {
     try {
-      e.preventDefault;
+      e.preventDefault();
       const { year, make, model } = vehicle;
 
       if (!year.trim() || !make.trim() || !model.trim()) {

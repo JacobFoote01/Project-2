@@ -23,12 +23,30 @@ const Maintenance = () => {
   }, [vehicleId]);
 
   const handleAdd = () => {
-    redirect("/add_maintenance");
+    redirect("/add_maintenance/" + vehicleId);
+  };
+
+  const handleDelete = async (maintenanceId) => {
+    try {
+      const res = await axios.delete(`/server/maintenance/${maintenanceId}`);
+      if (res.data.success) {
+        location.href = "/maintenance/" + vehicleId;
+      }
+    } catch (error) {
+      console.log("Error deleting maintenance:", error);
+    }
+  };
+
+  const handleModification = () => {
+    redirect("/mods/:vehicleId");
   };
 
   return (
     <>
       <div className="maintenance">
+        <button type="submit" onClick={handleModification}>
+          Modifications
+        </button>
         {maintenance.map((maintenance) => (
           <Container className="maintenances" key={maintenance.maintenanceId}>
             <Row>
@@ -41,6 +59,12 @@ const Maintenance = () => {
             </Row>
             <Row>Name: {maintenance.name}</Row>
             <Row>Difficulty: {maintenance.difficulty}</Row>
+            <button
+              type="submit"
+              onClick={() => handleDelete(maintenance.maintenanceId)}
+            >
+              Delete
+            </button>
           </Container>
         ))}
         <button type="submit" onClick={handleAdd}>

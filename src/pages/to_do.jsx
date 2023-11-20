@@ -1,26 +1,29 @@
-import { useNavigate } from "react-router-dom"
+// import { useNavigate } from "react-router-dom";
 
-const ToDo = () => {
+// const ToDo = () => {
+//   const redirect = useNavigate();
+//   const handleMaintenance = () => {
+//     redirect("/maintenance/:vehicleId");
+//   };
 
-    const redirect = useNavigate()
-    const handleMaintenance = () => {
-        redirect("/maintenance")
-    }
-    
-    const handleMods = () => {
-        redirect("/mods")
-    }
+//   const handleMods = () => {
+//     redirect("/mods/:vehicleId");
+//   };
 
-  return (
-    <>
-        <div>
-            <button type="submit" onClick={handleMaintenance}>Maintenance</button>
-            <button type="submit" onClick={handleMods}>Modifications</button>
-            <br/>
-            To Do 
-        </div>
-    </>
-  )
-}
+//   return (
+//     <>
+//       <div>
+//         <button type="submit" onClick={handleMaintenance}>
+//           Maintenance
+//         </button>
+//         <button type="submit" onClick={handleMods}>
+//           Modifications
+//         </button>
+//         <br />
+//         To Do
+//       </div>
+//     </>
+//   );
+// };
 
-export default ToDo
+// export default ToDo;

@@ -4,9 +4,9 @@ import axios from "axios";
 import { useUser } from "../hooks/useUser";
 
 const AddMaintenance = () => {
+  const user = useUser();
   const { vehicleId } = useParams();
   const redirect = useNavigate();
-  const user = useUser();
   const [maintenance, setMaintenance] = useState({
     img: "",
     name: "",
@@ -22,28 +22,6 @@ const AddMaintenance = () => {
     });
   };
 
-  // const handleSave = async (e) => {
-  //   try {
-  //     e.preventDefault();
-  //     const { name, difficulty } = maintenance;
-
-  //     if (!name.trim() || !difficulty.trim()) {
-  //       alert("Please fill in all fields.");
-  //       return;
-  //     }
-  //     const newMaintenance = {
-  //       img: maintenance.img,
-  //       name: maintenance.name,
-  //       difficulty: maintenance.difficulty,
-  //     };
-
-  //     const res = await axios.post("/server/addMaintenance", newMaintenance);
-  //   } catch (error) {
-  //     console.log("Error creating Maintenance:", error);
-  //   }
-  //   return redirect(`/vehicle/${vehicleId}`);
-  // };
-
   const handleSave = async (e) => {
     try {
       e.preventDefault();
@@ -53,14 +31,15 @@ const AddMaintenance = () => {
         alert("Please fill in all fields.");
         return;
       }
+
       const newMaintenance = {
         img: maintenance.img,
         name: maintenance.name,
         difficulty: maintenance.difficulty,
+        vehicleId: vehicleId,
       };
-
       const res = await axios.post("/server/addMaintenance", newMaintenance);
-      redirect(`/vehicle/${vehicleId}`);
+      redirect(`/maintenance/${vehicleId}`);
     } catch (error) {
       console.log("Error creating Maintenance:", error);
     }
