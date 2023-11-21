@@ -47,6 +47,8 @@ app.post('/server/addModification', handlerFunctions.addModification)
 
 app.delete('/server/maintenance/:maintenanceId', handlerFunctions.deleteMaintenance)
 
+app.delete('/server/modification/:modificationId', handlerFunctions.deleteModification)
+
 app.delete('/server/vehicle/:vehicleId', handlerFunctions.deleteVehicle)
 
 app.put('/server/vehicle/:vehicleId', handlerFunctions.editVehicle)

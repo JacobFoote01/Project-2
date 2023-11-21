@@ -41,7 +41,6 @@ const Modification = () => {
     }
   };
 
-  // Fix the delete modification *****
   return (
     <>
       <div>
