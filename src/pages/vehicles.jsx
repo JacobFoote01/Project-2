@@ -60,9 +60,10 @@ function Vehicles() {
 
   return (
     <>
-      <Container className="vehicles" key={vehicles.vehicleId}>
+      <Container className="vehicles">
         {vehicles.map((v) => (
           <Vehicle
+            key={v.vehicleId}
             vehicle={v}
             isEditingVehicle={
               isEditing && v.vehicleId === selectedVehicle.vehicleId

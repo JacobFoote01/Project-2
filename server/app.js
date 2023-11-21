@@ -33,6 +33,8 @@ app.get('/server/user', handlerFunctions.getUser)
 
 app.get('/server/maintenance/:vehicleId', handlerFunctions.getMaintenance)
 
+app.get('/server/modification/:vehicleId', handlerFunctions.getModification)
+
 app.post('/server/auth', handlerFunctions.login);
 
 app.post('/server/addUser', handlerFunctions.addUser)
@@ -49,4 +51,4 @@ app.delete('/server/vehicle/:vehicleId', handlerFunctions.deleteVehicle)
 
 app.put('/server/vehicle/:vehicleId', handlerFunctions.editVehicle)
 
-ViteExpress.listen(app, 5173, () => console.log(`Welcome! Report to http://localhost:5173`))
+ViteExpress.listen(app, 5173, () => console.log(`Welcome! Report to http://localhost:5173`)) 

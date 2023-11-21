@@ -12,8 +12,7 @@ import AddVehicle from "./pages/add_vehicle";
 import AddUser from "./pages/add_user";
 import Vehicle from "./pages/vehicle";
 import Maintenance from "./pages/maintenance";
-// import ToDo from "./pages/to_do";
-import Mods from "./pages/mods";
+import Mods from "./pages/modification";
 import "./css/main.css";
 import { Root } from "./pages/root";
 import AddModifications from "./pages/add_modifications";
@@ -27,10 +26,13 @@ const router = createBrowserRouter(
       <Route path="/app" element={<App />} />
       <Route path="/add_vehicle" element={<AddVehicle />} />
       <Route path="/vehicle/:vehicleId" element={<Vehicle />} />
-      <Route path="/mods/:vehicleId" element={<Mods />} />
+      <Route path="/modification/:vehicleId" element={<Mods />} />
       <Route path="/maintenance/:vehicleId" element={<Maintenance />} />
       <Route path="/add_maintenance/:vehicleId" element={<AddMaintenance />} />
-      <Route path="/add_modifications" element={<AddModifications />} />
+      <Route
+        path="/add_modifications/:vehicleId"
+        element={<AddModifications />}
+      />
     </Route>
   )
 );

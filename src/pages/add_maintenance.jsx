@@ -39,10 +39,11 @@ const AddMaintenance = () => {
         vehicleId: vehicleId,
       };
       const res = await axios.post("/server/addMaintenance", newMaintenance);
-      redirect(`/maintenance/${vehicleId}`);
+      redirect("/maintenance/" + vehicleId);
     } catch (error) {
       console.log("Error creating Maintenance:", error);
     }
+    return redirect("/maintenance/" + vehicleId);
   };
 
   return (

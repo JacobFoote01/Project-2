@@ -34,9 +34,13 @@ const handlerFunctions = {
     }, 
     getMaintenance: async (req, res) => {
         const { vehicleId } = req.params
-        console.log(req.params)
         const maintenance = await Maintenance.findAll({ where: { vehicleId: vehicleId }})
         res.json(maintenance)
+    },
+    getModification: async (req, res) => {
+        const { vehicleId } = req.params
+        const modification = await Modification.findAll({ where: { vehicleId: vehicleId }})
+        res.json(modification)
     },
     getUser: async (req, res) => {
         const {user} = req.session
@@ -82,11 +86,12 @@ const handlerFunctions = {
         res.json({maintenance})
     },
     addModification: async (req, res) => {
-        const { vehicleId } = req.body
-            const modification = await modification.create({
-                name: req.body.name,
-                difficulty: req.body.difficulty,
-            })
+        const modification = await Modification.create({
+            img: req.body.img,
+            name: req.body.name,
+            difficulty: req.body.difficulty,
+            vehicleId: req.body.vehicleId,
+        })
         res.json({modification})
     },
     deleteVehicle: async (req, res) => {
@@ -97,6 +102,11 @@ const handlerFunctions = {
     deleteMaintenance: async (req, res) => {
         const { maintenanceId } = req.params
         await Maintenance.destroy({ where: {maintenanceId: maintenanceId}})
+        return res.json({ success: true })
+    },
+    deleteModification: async (req, res) => {
+        const { modificationId } = req.params
+        await Modification.destroy({ where: {modificationId: modificationId}})
         return res.json({ success: true })
     },
     editVehicle: async (req, res) => {

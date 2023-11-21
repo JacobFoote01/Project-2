@@ -27,11 +27,8 @@ function VehicleList() {
     redirect("/maintenance/" + vehicleId);
   };
   const Mods = () => {
-    redirect("/mods");
+    redirect("/modification/" + vehicleId);
   };
-  // const ToDo = () => {
-  //   redirect("/to_do");
-  // };
 
   useEffect(() => {
     getVehicle();
@@ -39,6 +36,14 @@ function VehicleList() {
 
   return (
     <>
+      <div className="Routing Buttons">
+        <button type="submit" onClick={Maintenance}>
+          Maintenance
+        </button>
+        <button type="submit" onClick={Mods}>
+          Modifications
+        </button>
+      </div>
       <div className="vehicle">
         <Container className="vehicles">
           <Row>
@@ -53,17 +58,6 @@ function VehicleList() {
           <Row>{vehicle?.make}</Row>
           <Row>{vehicle?.model}</Row>
         </Container>
-      </div>
-      <div className="Routing Buttons">
-        <button type="submit" onClick={Maintenance}>
-          Maintenance
-        </button>
-        <button type="submit" onClick={Mods}>
-          Modifications
-        </button>
-        {/* <button type="submit" onClick={ToDo}>
-          To Do
-        </button> */}
       </div>
     </>
   );

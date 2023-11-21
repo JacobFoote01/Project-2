@@ -4,14 +4,14 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useSessionCheck } from "../hooks/useSessionCheck";
 
-const Mods = () => {
+const Modification = () => {
   const { vehicleId } = useParams();
   useSessionCheck();
   const redirect = useNavigate();
-  const [Modification, setModification] = useState([]);
+  const [modification, setModification] = useState([]);
 
   const handleMaintenance = () => {
-    redirect("/maintenance/:vehicleId");
+    redirect("/maintenance/" + vehicleId);
   };
 
   useEffect(() => {
@@ -27,20 +27,21 @@ const Mods = () => {
   }, [vehicleId]);
 
   const handleAdd = () => {
-    redirect("/add_modifications");
+    redirect("/add_modifications/" + vehicleId);
   };
 
   const handleDelete = async (modificationId) => {
     try {
       const res = await axios.delete(`/server/modification/${modificationId}`);
       if (res.data.success) {
-        location.href = "/vehicle";
+        location.href = "/modification/" + vehicleId;
       }
     } catch (error) {
       console.log("Error deleting modification:", error);
     }
   };
 
+  // Fix the delete modification *****
   return (
     <>
       <div>
@@ -48,7 +49,10 @@ const Mods = () => {
           Maintenance
         </button>
         {modification.map((modification) => (
-          <Container className="modification" key={modification.modificationId}>
+          <Container
+            className="modifications"
+            key={modification.modificationId}
+          >
             <Row>
               <img
                 style={{
@@ -59,7 +63,10 @@ const Mods = () => {
             </Row>
             <Row>Name: {modification.name}</Row>
             <Row>Difficulty: {modification.difficulty}</Row>
-            <button type="submit" onClick={handleDelete}>
+            <button
+              type="submit"
+              onClick={() => handleDelete(modification.modificationId)}
+            >
               Delete
             </button>
           </Container>
@@ -72,4 +79,4 @@ const Mods = () => {
   );
 };
 
-export default Mods;
+export default Modification;

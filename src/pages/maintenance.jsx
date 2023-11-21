@@ -38,7 +38,7 @@ const Maintenance = () => {
   };
 
   const handleModification = () => {
-    redirect("/mods/:vehicleId");
+    redirect("/modification/" + vehicleId);
   };
 
   return (
