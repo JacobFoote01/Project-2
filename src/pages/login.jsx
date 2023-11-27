@@ -1,28 +1,30 @@
-import { useNavigate } from 'react-router-dom';
-import LoginForm from '../components/login_form';
-import axios from 'axios';
-import { useSessionCheck } from '../hooks/useSessionCheck';
+import { useNavigate } from "react-router-dom";
+import LoginForm from "../components/login_form";
+import axios from "axios";
+import { useSessionCheck } from "../hooks/useSessionCheck";
 
 export default function Login() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  useSessionCheck()
+  useSessionCheck();
 
   const handleLogin = async (e, formData) => {
-    e.preventDefault()
-    const res = await axios.post('/server/auth', formData)
+    e.preventDefault();
+    const res = await axios.post("/server/auth", formData);
 
     if (res.data.success) {
-      navigate('/app')
+      navigate("/app");
     } else {
-      alert ('No user matches that Email or Password')
+      alert("No user matches that Email or Password");
     }
-  }
-  
+  };
+
   return (
     <>
-      <h1>Welcome to your Vehicle Log!</h1>
-      <br/>
+      <h1 color="blue" className="login">
+        Vehicle Log
+      </h1>
+      <br />
       <LoginForm onLogin={handleLogin} />
     </>
   );

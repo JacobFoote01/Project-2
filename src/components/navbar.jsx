@@ -1,6 +1,7 @@
 import { Container, Navbar, Nav } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+// import "../css/navbar";
 
 export default function NavBar() {
   const navigate = useNavigate();
@@ -16,14 +17,19 @@ export default function NavBar() {
 
   return (
     <>
-      <Navbar expand="lg">
+      <Navbar expand="lg" className="navbar">
         <Container>
-          <Navbar.Brand href="/">Vehicle Log</Navbar.Brand>
-          <Navbar.Collapse className="justify-content-end">
+          <Navbar.Brand href="/" className="home-navbar">
+            Vehicle Log
+          </Navbar.Brand>
+          <Navbar.Collapse id="navbar">
             <Nav className="me-auto">
-              <Nav.Link href="/">Login</Nav.Link>
-              <br />
-              <Nav.Link onClick={logOut}>Log Out</Nav.Link>
+              <Nav.Link href="/" className="login-page-navbar">
+                Login
+              </Nav.Link>
+              <Nav.Link className="logout-navbar" onClick={logOut}>
+                Log Out
+              </Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>

@@ -1,8 +1,4 @@
-.login {
-    text-align: center;
-}
-
-.navbar a:hover {
+/* .navbar a:hover {
     color: rgb(255, 238, 0);
 }
 
@@ -33,28 +29,4 @@
     text-align: right;
     padding-right: 38%;
     padding-bottom: 10px;
-}
-
-.register-page {
-    text-align: center;
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-
-.email, .username, .password, .confirm-password {
-    padding: 5px;
-    margin: 5px
-}
-
-.save-button {
-    text-align: center;
-    padding: 10px;
-}
-
-.input--not-editing {
-    background: none;
-    border: none;
-    cursor: text;
-    color: white;
-    pointer-events: none;
-}
+} */
