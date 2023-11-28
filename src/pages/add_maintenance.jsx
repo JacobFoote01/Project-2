@@ -48,18 +48,31 @@ const AddMaintenance = () => {
 
   return (
     <>
-      <form>
-        <h3>Img Url :</h3>
-        <input type="text" name="img" id="img" onChange={handleClick} />
-        <h3>Name :</h3>
-        <input type="text" name="name" id="name" onChange={handleClick} />
-        <h3>Difficulty :</h3>
+      <form className="add-maint">
         <input
           type="text"
+          placeholder="Image URL"
+          name="img"
+          id="img"
+          onChange={handleClick}
+        />
+        <br />
+        <input
+          type="text"
+          placeholder="Name"
+          name="name"
+          id="name"
+          onChange={handleClick}
+        />
+        <br />
+        <input
+          type="text"
+          placeholder="Difficulty 1-5"
           name="difficulty"
           id="difficulty"
           onChange={handleClick}
         />
+        <br />
       </form>
       <br />
       <button className="save" onClick={handleSave}>

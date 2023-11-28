@@ -38,3 +38,11 @@
     color: black;
     pointer-events: none;
 }
+
+.welcome {
+    text-align: center;
+}
+
+.rendered-vehicles {
+    text-align: center;
+}

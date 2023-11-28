@@ -3,7 +3,7 @@
 }
  
 .maintenance-button {
-    margin-left: 25px
+    margin-left: 43%
 }
 
 .modification-button {
@@ -11,9 +11,29 @@
 }
 
 .vehicle {
-    padding: 25px;
+    text-align: center;
+    padding-top: 20px;
 }
 
 .vehicle-info {
-    margin-left: 250px;
+    text-align: center;
+}
+
+.add-vehicle-form {
+    padding: 5px;
+    margin: 5px;
+    text-align: center;
+}
+
+.add-vehicle {
+    margin-left: 75%;
+}
+
+.save {
+    margin-left: 48%;
+}
+
+#img, #year, #make, #model {
+    padding: 5px;
+    margin: 5px; 
 }

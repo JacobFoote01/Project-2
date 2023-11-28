@@ -48,15 +48,38 @@ function AddVehicle() {
 
   return (
     <>
-      <form>
-        <h3>Img Url :</h3>
-        <input type="text" name="img" id="img" onChange={handleClick} />
-        <h3>Year :</h3>
-        <input type="text" name="year" id="year" onChange={handleClick} />
-        <h3>Make :</h3>
-        <input type="text" name="make" id="make" onChange={handleClick} />
-        <h3>Model :</h3>
-        <input type="text" name="model" id="model" onChange={handleClick} />
+      <form className="add-vehicle-form">
+        <input
+          type="text"
+          placeholder="Image URL"
+          name="img"
+          id="img"
+          onChange={handleClick}
+        />
+        <br />
+        <input
+          type="text"
+          placeholder="Year"
+          name="year"
+          id="year"
+          onChange={handleClick}
+        />
+        <br />
+        <input
+          type="text"
+          placeholder="Make"
+          name="make"
+          id="make"
+          onChange={handleClick}
+        />
+        <br />
+        <input
+          type="text"
+          placeholder="Model"
+          name="model"
+          id="model"
+          onChange={handleClick}
+        />
       </form>
       <br />
       <button className="save" onClick={handleSave}>

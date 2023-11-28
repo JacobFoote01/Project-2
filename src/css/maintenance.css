@@ -6,13 +6,17 @@
     margin: 25px;
 }
 .maintenances {
-    margin: 25px;
+    text-align: center;
 }
 
 .maintenance-info {
-    margin-left: 100px;
+    text-align: center;
 }
 
-.add-button {
-    margin-left: 75%;
+.add-maint {
+    text-align: center;
+}
+
+.mods-button {
+    margin-left: 45%
 }

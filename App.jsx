@@ -14,12 +14,12 @@ function App() {
 
   return (
     <>
-      <div className="content">
-        <h1>
+      <div>
+        <h1 className="welcome">
           Welcome {user?.name}, What vehicle would you like to work on today?
         </h1>
-        <div className="vehicles">{<Vehicles />}</div>
-        <button type="submit" onClick={handleClick}>
+        <div className="rendered-vehicles">{<Vehicles />}</div>
+        <button className="add-vehicle" type="submit" onClick={handleClick}>
           Add
         </button>
       </div>

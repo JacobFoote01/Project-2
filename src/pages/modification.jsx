@@ -44,10 +44,17 @@ const Modification = () => {
 
   return (
     <>
-      <h1 className="modification-title">Modification Page</h1>
+      <h1 className="modification-title">Modifications</h1>
       <div className="modification">
-        <button type="submit" onClick={handleMaintenance}>
+        <button
+          className="maint-button"
+          type="submit"
+          onClick={handleMaintenance}
+        >
           Maintenance
+        </button>
+        <button className="add-button" type="submit" onClick={handleAdd}>
+          Add
         </button>
         {modification.map((modification) => (
           <Container
@@ -63,7 +70,7 @@ const Modification = () => {
               />
             </Row>
             <h3>
-              <Row className="modification-info">Name: {modification.name}</Row>
+              <Row className="modification-info">{modification.name}</Row>
               <Row className="modification-info">
                 Difficulty: {modification.difficulty}
               </Row>
@@ -77,9 +84,6 @@ const Modification = () => {
           </Container>
         ))}
       </div>
-      <button className="add-button" type="submit" onClick={handleAdd}>
-        Add
-      </button>
     </>
   );
 };

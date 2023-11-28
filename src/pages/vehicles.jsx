@@ -105,7 +105,11 @@ function Vehicle({
 
   return (
     <>
-      <div key={newVehicle.vehicleId} onClick={!isEditingVehicle && onClick}>
+      <div
+        className=""
+        key={newVehicle.vehicleId}
+        onClick={!isEditingVehicle && onClick}
+      >
         <Row>
           {" "}
           {!isEditingVehicle && (

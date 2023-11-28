@@ -6,13 +6,26 @@
     margin: 25px;
 }
 .modifications {
-    margin: 25px;
+    text-align: center;
 }
 
 .modification-info {
-    margin-left: 100px;
+    text-align: center;
 }
 
 .add-button {
-    margin-left: 75%;
+    margin: 10px;
+}
+
+#name, #difficulty {
+    padding: 5px;
+    margin: 5px; 
+}
+
+.add-mods {
+    text-align: center;
+}
+
+.maint-button {
+    margin-left: 45%;
 }

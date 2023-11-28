@@ -44,10 +44,17 @@ const Maintenance = () => {
 
   return (
     <>
-      <h1 className="maintenance-title">Maintenance Page</h1>
+      <h1 className="maintenance-title">Maintenance</h1>
       <div className="maintenance">
-        <button type="submit" onClick={handleModification}>
+        <button
+          className="mods-button"
+          type="submit"
+          onClick={handleModification}
+        >
           Modifications
+        </button>
+        <button className="add-button" type="submit" onClick={handleAdd}>
+          Add
         </button>
         {maintenance.map((maintenance) => (
           <Container className="maintenances" key={maintenance.maintenanceId}>
@@ -60,7 +67,7 @@ const Maintenance = () => {
               />
             </Row>
             <h3>
-              <Row className="maintenance-info">Name: {maintenance.name}</Row>
+              <Row className="maintenance-info">{maintenance.name}</Row>
               <Row className="maintenance-info">
                 Difficulty: {maintenance.difficulty}
               </Row>
@@ -75,9 +82,6 @@ const Maintenance = () => {
           </Container>
         ))}
       </div>
-      <button className="add-button" type="submit" onClick={handleAdd}>
-        Add
-      </button>
     </>
   );
 };
