@@ -49,7 +49,7 @@ function VehicleList() {
           <Row>
             <img
               style={{
-                width: "10rem",
+                width: "25rem",
               }}
               src={vehicle?.img}
             />

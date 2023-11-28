@@ -18,7 +18,7 @@ function App() {
         <h1>
           Welcome {user?.name}, What vehicle would you like to work on today?
         </h1>
-        <div>{<Vehicles />}</div>
+        <div className="vehicles">{<Vehicles />}</div>
         <button type="submit" onClick={handleClick}>
           Add
         </button>

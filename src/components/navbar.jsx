@@ -1,7 +1,7 @@
 import { Container, Navbar, Nav } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-// import "../css/navbar";
+import "../css/navbar.css";
 
 export default function NavBar() {
   const navigate = useNavigate();

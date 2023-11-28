@@ -2,43 +2,23 @@
     text-align: center;
 }
 
-.navbar a:hover {
-    color: rgb(255, 238, 0);
-}
-
-.navbar {
-    display: flex;
-    padding: 5px;
-    background-color: rgba(0, 0, 0, 0.801);
-    color: blue;
-}
-
-.login-page-navbar {
-    align-content: right;
-    padding-right: 5px;
-}
-
-.logout-navbar {
-    align-content: right;
-}
-
 .login-button {
-    text-align: right;
-    padding-right: 38%;
+    text-align: center;
+    padding-left: 310px;
     padding-top: 10px;
     padding-bottom: 10px;
 }
 
 .register-button {
-    text-align: right;
-    padding-right: 38%;
+    text-align: center;
+    padding-left: 300px;
     padding-bottom: 10px;
 }
 
 .register-page {
     text-align: center;
     padding-top: 20px;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
 }
 
 .email, .username, .password, .confirm-password {
@@ -48,13 +28,13 @@
 
 .save-button {
     text-align: center;
-    padding: 10px;
+    padding: 5px;
 }
 
 .input--not-editing {
     background: none;
     border: none;
     cursor: text;
-    color: white;
+    color: black;
     pointer-events: none;
 }
