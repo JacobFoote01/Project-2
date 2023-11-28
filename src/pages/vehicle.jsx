@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Container, Row } from "react-bootstrap";
 import axios from "axios";
+import "../css/vehicle.css";
 
 function VehicleList() {
   const [input, setInput] = useState();
@@ -36,27 +37,32 @@ function VehicleList() {
 
   return (
     <>
-      <div className="Routing Buttons">
-        <button type="submit" onClick={Maintenance}>
-          Maintenance
-        </button>
-        <button type="submit" onClick={Mods}>
-          Modifications
-        </button>
-      </div>
+      <h1 className="title">Vehicle Page</h1>
+      <button
+        className="maintenance-button"
+        type="submit"
+        onClick={Maintenance}
+      >
+        Maintenance
+      </button>
+      <button className="modification-button" type="submit" onClick={Mods}>
+        Modifications
+      </button>
       <div className="vehicle">
-        <Container className="vehicles">
+        <Container>
           <Row>
             <img
               style={{
-                width: "25rem",
+                width: "40rem",
               }}
               src={vehicle?.img}
             />
           </Row>
-          <Row>{vehicle?.year}</Row>
-          <Row>{vehicle?.make}</Row>
-          <Row>{vehicle?.model}</Row>
+          <h1>
+            <Row className="vehicle-info">{vehicle?.year}</Row>
+            <Row className="vehicle-info">{vehicle?.make}</Row>
+            <Row className="vehicle-info">{vehicle?.model}</Row>
+          </h1>
         </Container>
       </div>
     </>

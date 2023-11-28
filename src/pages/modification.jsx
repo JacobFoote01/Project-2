@@ -3,6 +3,7 @@ import { Container, Row } from "react-bootstrap";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useSessionCheck } from "../hooks/useSessionCheck";
+import "../css/modifications.css";
 
 const Modification = () => {
   const { vehicleId } = useParams();
@@ -43,7 +44,8 @@ const Modification = () => {
 
   return (
     <>
-      <div>
+      <h1 className="modification-title">Modification Page</h1>
+      <div className="modification">
         <button type="submit" onClick={handleMaintenance}>
           Maintenance
         </button>
@@ -60,8 +62,12 @@ const Modification = () => {
                 src={modification.img}
               />
             </Row>
-            <Row>Name: {modification.name}</Row>
-            <Row>Difficulty: {modification.difficulty}</Row>
+            <h3>
+              <Row className="modification-info">Name: {modification.name}</Row>
+              <Row className="modification-info">
+                Difficulty: {modification.difficulty}
+              </Row>
+            </h3>
             <button
               type="submit"
               onClick={() => handleDelete(modification.modificationId)}
@@ -70,10 +76,10 @@ const Modification = () => {
             </button>
           </Container>
         ))}
-        <button type="submit" onClick={handleAdd}>
-          Add
-        </button>
       </div>
+      <button className="add-button" type="submit" onClick={handleAdd}>
+        Add
+      </button>
     </>
   );
 };

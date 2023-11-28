@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useSessionCheck } from "../hooks/useSessionCheck";
+import "../css/maintenance.css";
 
 const Maintenance = () => {
   const { vehicleId } = useParams();
@@ -43,6 +44,7 @@ const Maintenance = () => {
 
   return (
     <>
+      <h1 className="maintenance-title">Maintenance Page</h1>
       <div className="maintenance">
         <button type="submit" onClick={handleModification}>
           Modifications
@@ -57,20 +59,25 @@ const Maintenance = () => {
                 src={maintenance.img}
               />
             </Row>
-            <Row>Name: {maintenance.name}</Row>
-            <Row>Difficulty: {maintenance.difficulty}</Row>
+            <h3>
+              <Row className="maintenance-info">Name: {maintenance.name}</Row>
+              <Row className="maintenance-info">
+                Difficulty: {maintenance.difficulty}
+              </Row>
+            </h3>
             <button
               type="submit"
+              className="maintenance-delete"
               onClick={() => handleDelete(maintenance.maintenanceId)}
             >
               Delete
             </button>
           </Container>
         ))}
-        <button type="submit" onClick={handleAdd}>
-          Add
-        </button>
       </div>
+      <button className="add-button" type="submit" onClick={handleAdd}>
+        Add
+      </button>
     </>
   );
 };

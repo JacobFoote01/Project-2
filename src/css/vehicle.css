@@ -1,0 +1,19 @@
+.title {
+    text-align: center;
+}
+ 
+.maintenance-button {
+    margin-left: 25px
+}
+
+.modification-button {
+    margin-left: 20px;
+}
+
+.vehicle {
+    padding: 25px;
+}
+
+.vehicle-info {
+    margin-left: 250px;
+}
