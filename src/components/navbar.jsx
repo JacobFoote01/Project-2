@@ -18,7 +18,7 @@ export default function NavBar() {
   return (
     <>
       <Navbar expand="lg" className="navbar">
-        <Container>
+        <Container className="navbar-container">
           <Navbar.Brand href="/">
             <img
               src="https://ih1.redbubble.net/image.3809659565.1390/raf,360x360,075,t,fafafa:ca443f4786.jpg"
@@ -29,7 +29,7 @@ export default function NavBar() {
             />
           </Navbar.Brand>
           <Navbar.Collapse id="navbar">
-            <Nav className="me-auto">
+            <Nav className="navbar-links">
               <Nav.Link href="/" className="login-page-navbar">
                 Login
               </Nav.Link>

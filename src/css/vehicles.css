@@ -1,5 +1,19 @@
 .vehicles {
     margin: 5px;
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.vehicle {
+    text-align: center;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+
 }
 
 .vehicles-info {

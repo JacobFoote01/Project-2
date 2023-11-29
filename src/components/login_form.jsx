@@ -20,26 +20,30 @@ export default function LoginForm({ onLogin }) {
         });
       }}
     >
-      <input
-        id="email"
-        type="text"
-        placeholder="Email"
-        className="email"
-        onChange={(e) => setEmailValue(e.target.value)}
-      />
-      <input
-        id="password"
-        type="password"
-        placeholder="Password"
-        className="password"
-        onChange={(e) => setPasswordValue(e.target.value)}
-      />
-      <br />
-      <div className="login-button">
-        <button type="submit">Login</button>
+      <div className="login-inputs">
+        <input
+          id="email"
+          type="text"
+          placeholder="Email"
+          className="email"
+          onChange={(e) => setEmailValue(e.target.value)}
+        />
+        <input
+          id="password"
+          type="password"
+          placeholder="Password"
+          className="password"
+          onChange={(e) => setPasswordValue(e.target.value)}
+        />
       </div>
-      <div className="register-button">
-        <button onClick={Add}>Register</button>
+      <br />
+      <div className="login-buttons">
+        <div className="login-button">
+          <button type="submit">Login</button>
+        </div>
+        <div className="register-button">
+          <button onClick={Add}>Register</button>
+        </div>
       </div>
     </form>
   );

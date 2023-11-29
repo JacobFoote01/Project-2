@@ -105,12 +105,8 @@ function Vehicle({
   };
 
   return (
-    <>
-      <div
-        className="vehicles"
-        key={newVehicle.vehicleId}
-        onClick={!isEditingVehicle && onClick}
-      >
+    <div className="vehicle">
+      <div key={newVehicle.vehicleId} onClick={!isEditingVehicle && onClick}>
         <Row>
           {" "}
           {!isEditingVehicle && (
@@ -169,7 +165,7 @@ function Vehicle({
       {isEditingVehicle && (
         <button onClick={() => onSave(newVehicle)}>Save</button>
       )}
-    </>
+    </div>
   );
 }
 

@@ -20,12 +20,12 @@ export default function Login() {
   };
 
   return (
-    <>
+    <div className="login-page">
       <h1 color="blue" className="login">
         Vehicle Log
       </h1>
       <br />
       <LoginForm onLogin={handleLogin} />
-    </>
+    </div>
   );
 }

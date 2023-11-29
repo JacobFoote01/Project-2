@@ -1,29 +1,68 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
   .background-image {
     background-image: url(https://t4.ftcdn.net/jpg/03/02/19/33/360_F_302193391_IunhgvFF885fwx9Mi9ykXwcmu2X2c4bk.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-    height: 100vmax;
+    /* height: 100vmax; */
+    width: 100%;
     background-position: center center;
+}
+
+#root {
+    height: 100vh;
+    /* width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; */
+    overflow-y: auto;
+}
+
+.login-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
 }
 
 .login {
     text-align: center;
     border: 1px;
     border-color: rgb(21, 97, 238);
+    display: flex;
+    flex-direction: column;
+    width: 300px;
 }
 
+.login-inputs {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.login-buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+
 .login-button {
-    padding-left: 310px;
+    /* padding-left: 310px; */
     padding-top: 10px;
     padding-bottom: 10px;
 }
 
 .register-button {
-    padding-left: 300px;
+    /* padding-left: 300px; */
     padding-bottom: 10px;
 }
 
@@ -45,12 +84,21 @@
     padding: 5px;
 }
 
+
+
 .input--not-editing {
-    background: none;
+    background: none ;
     border: none;
     cursor: text;
     color: black;
     pointer-events: none;
+}
+
+.input--editing {
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid rgb(21, 97, 238);
+    border-radius: 10px; 
 }
 
 .welcome {
