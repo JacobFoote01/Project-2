@@ -12,7 +12,7 @@
 
 .vehicle {
     text-align: center;
-    padding-top: 20px;
+    padding-top: 10px;
 }
 
 .vehicle-info {
@@ -20,9 +20,9 @@
 }
 
 .add-vehicle-form {
+    text-align: center;
     padding: 5px;
     margin: 5px;
-    text-align: center;
 }
 
 .add-vehicle {
@@ -33,7 +33,9 @@
     margin-left: 48%;
 }
 
-#img, #year, #make, #model {
+#img, #year, #make, #model, #name, #difficulty {
     padding: 5px;
-    margin: 5px; 
+    margin: 5px;
+    border: 1px solid rgb(21, 97, 238);
+    border-radius: 10px; 
 }

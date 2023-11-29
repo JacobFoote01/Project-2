@@ -19,8 +19,14 @@ export default function NavBar() {
     <>
       <Navbar expand="lg" className="navbar">
         <Container>
-          <Navbar.Brand href="/" className="home-navbar">
-            Vehicle Log
+          <Navbar.Brand href="/">
+            <img
+              src="https://ih1.redbubble.net/image.3809659565.1390/raf,360x360,075,t,fafafa:ca443f4786.jpg"
+              width="80"
+              height="60"
+              className="d-inline-block align-top"
+              alt=""
+            />
           </Navbar.Brand>
           <Navbar.Collapse id="navbar">
             <Nav className="me-auto">

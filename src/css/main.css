@@ -1,16 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+  .background-image {
+    background-image: url(https://t4.ftcdn.net/jpg/03/02/19/33/360_F_302193391_IunhgvFF885fwx9Mi9ykXwcmu2X2c4bk.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vmax;
+    background-position: center center;
+}
+
 .login {
     text-align: center;
+    border: 1px;
+    border-color: rgb(21, 97, 238);
 }
 
 .login-button {
-    text-align: center;
     padding-left: 310px;
     padding-top: 10px;
     padding-bottom: 10px;
 }
 
 .register-button {
-    text-align: center;
     padding-left: 300px;
     padding-bottom: 10px;
 }
@@ -23,7 +35,9 @@
 
 .email, .username, .password, .confirm-password {
     padding: 5px;
-    margin: 5px
+    margin: 5px;
+    border: 1px solid rgb(21, 97, 238);
+    border-radius: 10px;
 }
 
 .save-button {
@@ -45,4 +59,12 @@
 
 .rendered-vehicles {
     text-align: center;
+}
+
+.main-page {
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
 }

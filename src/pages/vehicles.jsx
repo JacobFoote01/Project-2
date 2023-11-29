@@ -2,6 +2,7 @@ import { Container, Row } from "react-bootstrap";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import "../css/vehicles.css";
 
 function Vehicles() {
   const redirect = useNavigate();
@@ -106,7 +107,7 @@ function Vehicle({
   return (
     <>
       <div
-        className=""
+        className="vehicles"
         key={newVehicle.vehicleId}
         onClick={!isEditingVehicle && onClick}
       >
@@ -131,7 +132,7 @@ function Vehicle({
             />
           )}
         </Row>
-        <Row>
+        <Row className="vehicles-info">
           <input
             className={
               isEditingVehicle ? "input--editing" : "input--not-editing"
@@ -141,7 +142,7 @@ function Vehicle({
             onChange={handleChange}
           />
         </Row>
-        <Row>
+        <Row className="vehicles-info">
           <input
             className={
               isEditingVehicle ? "input--editing" : "input--not-editing"
@@ -151,7 +152,7 @@ function Vehicle({
             onChange={handleChange}
           />
         </Row>
-        <Row>
+        <Row className="vehicles-info">
           <input
             className={
               isEditingVehicle ? "input--editing" : "input--not-editing"

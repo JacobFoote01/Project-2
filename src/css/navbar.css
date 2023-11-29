@@ -1,27 +1,21 @@
 .navbar a:hover {
-    color: rgb(47, 0, 255);
-}
-
-.home-navbar {
-    margin: 10px;
-    color: black;
+    color: rgb(252, 0, 0);
 }
 
 .navbar {
     display: flex;
     padding: 5px;
-    background-color: rgb(8, 193, 255);
+    background-color: rgb(0, 0, 0)
 }
 
 .login-page-navbar {
     display: flex;
-    padding-right: 5px;
     margin: 10px;
-    color: black;
+    color: rgb(21, 97, 238);
 }
 
 .logout-navbar {
     display: flex;
     margin: 10px;
-    color: black;
+    color: rgb(21, 97, 238);
 } 

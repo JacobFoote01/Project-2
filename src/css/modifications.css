@@ -3,7 +3,7 @@
 }
 
 .modification {
-    margin: 25px;
+    margin: 10px;
 }
 .modifications {
     text-align: center;
@@ -15,11 +15,6 @@
 
 .add-button {
     margin: 10px;
-}
-
-#name, #difficulty {
-    padding: 5px;
-    margin: 5px; 
 }
 
 .add-mods {
