@@ -16,10 +16,6 @@
     overflow-y: auto;
 }
 
-.login-button,.register-button, .save-button {
-    padding: 5px;
-}
-
 .login-page {
     display: flex;
     flex-direction: column;
@@ -33,7 +29,6 @@
     border-color: rgb(21, 97, 238);
     display: flex;
     flex-direction: column;
-    width: 300px;
 }
 
 .login-inputs {
@@ -87,10 +82,6 @@
 }
 
 .welcome {
-    text-align: center;
-}
-
-.rendered-vehicles {
     text-align: center;
 }
 
