@@ -35,10 +35,3 @@
 .save {
     margin-left: 48%;
 }
-
-#img, #year, #make, #model, #name, #difficulty {
-    padding: 5px;
-    margin: 5px;
-    border: 1px solid rgb(21, 97, 238);
-    border-radius: 10px; 
-}

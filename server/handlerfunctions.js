@@ -51,19 +51,29 @@ const handlerFunctions = {
         res.json({ success: true, user })
     },
     addUser: async (req, res) => {
-        const { email } = req.body
-        const user = await User.findOne({ where: { email: email }})
-        if(user) { 
-            return res.json({ success: false })
-        } else {
-            const user = await User.create({ 
-                email: req.body.email, 
-                name: req.body.username, 
-                password: req.body.password, 
-            })
+        try {
+          const { email } = req.body;
+      
+          // Check if the user already exists
+          const existingUser = await User.findOne({ where: { email: email } });
+      
+          if (existingUser) {
+            return res.json({ success: false, message: 'User already exists' });
+          } else {
+            // Create a new user
+            const newUser = await User.create({
+              email: req.body.email,
+              name: req.body.username,
+              password: req.body.password,
+            });
+      
+            res.json({ success: true, user: newUser });
+          }
+        } catch (error) {
+          console.error('Error creating user:', error);
+          res.status(500).json({ success: false, message: 'Internal Server Error' });
         }
-        res.json({user})
-    },
+      },      
     addVehicle: async (req, res) => {
         const { userId } = req.body
             const vehicle = await Vehicle.create({

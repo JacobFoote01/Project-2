@@ -7,6 +7,17 @@
 }
 .maintenances {
     text-align: center;
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+    max-width: fit-content;
+    flex-wrap: wrap;
+}
+
+.one-maint-cont {
+    max-width: 20rem;
+    margin: 1rem;
+    align-items: center;
 }
 
 .maintenance-info {
@@ -19,4 +30,11 @@
 
 .mods-button {
     margin-left: 45%
+}
+
+.maint-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
 }

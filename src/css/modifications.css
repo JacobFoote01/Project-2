@@ -5,8 +5,20 @@
 .modification {
     margin: 10px;
 }
+
 .modifications {
     text-align: center;
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+    max-width: fit-content;
+    flex-wrap: wrap;
+} 
+
+.one-mod-cont {
+    max-width: 20rem;
+    margin: 1rem;
+    align-items: center;
 }
 
 .modification-info {
@@ -23,4 +35,11 @@
 
 .maint-button {
     margin-left: 45%;
+}
+
+.mod-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
 }

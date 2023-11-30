@@ -1,5 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { Container, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useSessionCheck } from "../hooks/useSessionCheck";
@@ -56,33 +56,34 @@ const Modification = () => {
         <button className="add-button" type="submit" onClick={handleAdd}>
           Add
         </button>
-        {modification.map((modification) => (
-          <Container
-            className="modifications"
-            key={modification.modificationId}
-          >
-            <Row>
-              <img
-                style={{
-                  width: "20rem",
-                }}
-                src={modification.img}
-              />
-            </Row>
-            <h3>
-              <Row className="modification-info">{modification.name}</Row>
-              <Row className="modification-info">
-                Difficulty: {modification.difficulty}
-              </Row>
-            </h3>
-            <button
-              type="submit"
-              onClick={() => handleDelete(modification.modificationId)}
-            >
-              Delete
-            </button>
-          </Container>
-        ))}
+        <Container className="mod-container" fluid>
+          {modification.map((modification) => (
+            <Col className="modifications" key={modification.modificationId}>
+              <Container fluid className="one-mod-cont">
+                <Row>
+                  <img
+                    style={{
+                      width: "20rem",
+                    }}
+                    src={modification.img}
+                  />
+                </Row>
+                <h3>
+                  <Row className="modification-info">{modification.name}</Row>
+                  <Row className="modification-info">
+                    Difficulty: {modification.difficulty}
+                  </Row>
+                </h3>
+                <button
+                  type="submit"
+                  onClick={() => handleDelete(modification.modificationId)}
+                >
+                  Delete
+                </button>
+              </Container>
+            </Col>
+          ))}
+        </Container>
       </div>
     </>
   );

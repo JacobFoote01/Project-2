@@ -1,4 +1,4 @@
-import { Container, Row } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
@@ -56,31 +56,35 @@ const Maintenance = () => {
         <button className="add-button" type="submit" onClick={handleAdd}>
           Add
         </button>
-        {maintenance.map((maintenance) => (
-          <Container className="maintenances" key={maintenance.maintenanceId}>
-            <Row>
-              <img
-                style={{
-                  width: "20rem",
-                }}
-                src={maintenance.img}
-              />
-            </Row>
-            <h3>
-              <Row className="maintenance-info">{maintenance.name}</Row>
-              <Row className="maintenance-info">
-                Difficulty: {maintenance.difficulty}
-              </Row>
-            </h3>
-            <button
-              type="submit"
-              className="maintenance-delete"
-              onClick={() => handleDelete(maintenance.maintenanceId)}
-            >
-              Delete
-            </button>
-          </Container>
-        ))}
+        <Container className="maint-container" fluid>
+          {maintenance.map((maintenance) => (
+            <Col className="maintenances" key={maintenance.maintenanceId}>
+              <Container fluid className="one-maint-cont">
+                <Row>
+                  <img
+                    style={{
+                      width: "20rem",
+                    }}
+                    src={maintenance.img}
+                  />
+                </Row>
+                <h3>
+                  <Row className="maintenance-info">{maintenance.name}</Row>
+                  <Row className="maintenance-info">
+                    Difficulty: {maintenance.difficulty}
+                  </Row>
+                </h3>
+                <button
+                  type="submit"
+                  className="maintenance-delete"
+                  onClick={() => handleDelete(maintenance.maintenanceId)}
+                >
+                  Delete
+                </button>
+              </Container>
+            </Col>
+          ))}
+        </Container>
       </div>
     </>
   );

@@ -14,23 +14,23 @@ function AddUser() {
 
   const handleClick = (e) => {
     e.preventDefault();
-    const { name, value } = e.target;
+    const { className, value } = e.target;
 
     setUser((prev) => {
-      return { ...prev, [name]: value };
+      return { ...prev, [className]: value };
     });
   };
 
   const handleSave = async (e) => {
     try {
-      e.preventDefault;
+      e.preventDefault();
       const { email, username, password, confirmPassword } = user;
 
       if (
-        !email.trim() ||
-        !username.trim() ||
-        !password.trim() ||
-        !confirmPassword.trim()
+        email.trim() === "" ||
+        username.trim() === "" ||
+        password.trim() === "" ||
+        confirmPassword.trim() === ""
       ) {
         alert("Please fill in all fields.");
         return;
@@ -48,10 +48,10 @@ function AddUser() {
       };
 
       const res = await axios.post("/server/addUser", newUser);
+      return redirect("/");
     } catch (error) {
       console.log("Error creating user:", error);
     }
-    return redirect("/");
   };
 
   return (
@@ -59,7 +59,6 @@ function AddUser() {
       <form className="register-page">
         <input
           placeholder="Email"
-          id="email"
           type="text"
           className="email"
           onChange={handleClick}
@@ -68,7 +67,6 @@ function AddUser() {
         <br />
         <input
           placeholder="Username"
-          id="username"
           type="text"
           className="username"
           onChange={handleClick}
@@ -77,7 +75,6 @@ function AddUser() {
         <br />
         <input
           placeholder="Password"
-          id="password"
           type="password"
           className="password"
           onChange={handleClick}
@@ -86,9 +83,8 @@ function AddUser() {
         <br />
         <input
           placeholder="Confirm Password"
-          id="confirmPassword"
           type="password"
-          className="confirm-password"
+          className="confirmPassword"
           onChange={handleClick}
           required
         />

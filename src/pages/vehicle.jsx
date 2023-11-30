@@ -58,11 +58,11 @@ function VehicleList() {
               src={vehicle?.img}
             />
           </Row>
-          <h1>
+          <h2>
             <Row className="vehicle-info">{vehicle?.year}</Row>
             <Row className="vehicle-info">{vehicle?.make}</Row>
             <Row className="vehicle-info">{vehicle?.model}</Row>
-          </h1>
+          </h2>
         </Container>
       </div>
     </>
