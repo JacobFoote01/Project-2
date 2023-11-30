@@ -75,6 +75,8 @@
     cursor: text;
     color: black;
     pointer-events: none;
+    font-weight: bold;
+    text-align: center;
 }
 
 .input--editing {
@@ -98,4 +100,14 @@
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
+}
+
+button {
+    border-radius: 10px;
+    border: 1px solid rgb(21, 97, 238);
+    background-color: rgb(21, 97, 238);
+    color: white;
+    padding: 5px;
+    margin: 5px;
+    cursor: pointer;
 }
