@@ -1,1 +1,11 @@
-https://docs.google.com/document/d/1rTYhVyIwOi7P5J6DiyVJXc3QBoZAjwapJC3sdCGIJws/edit?usp=sharing
+🚗 Welcome to Vehicle Log - Your Personal Car Management App!
+Hello! I'm Jacob Foote, and I'm excited to introduce you to my React application, Vehicle Log. As someone who loves cars, I often find myself modifying and maintaining them. Yet, keeping track of modifications and maintenance records has been a challenge—until now.
+Getting Started
+Begin by logging in or creating a new account. To showcase the app’s functionality let's start by logging in which will check your credentials and either allow you to go to the home page or will send an alert letting you know the something you input was incorrect. Or that the email you input doesn’t exist in the database
+
+Once logged in, you'll land on the home page showcasing all of your vehicles. From here, you have complete control. Edit any vehicle details, including images, or delete a vehicle completely. I’d like to showcase how user friendly it is by making a new vehicle, this happens with an on click event that sends an axios post request to create the vehicle in my postgreSQL database. After a successful creation, you'll be redirected back to the Home page. Next
+Click on a vehicle to look at its history.
+Separate pages detail modifications and maintenance. Each click leads you to all of the information pulled straight from my database.
+Feel free to add new modifications or maintenance tasks or to delete outdated entries.
+Once you're done, hit logout. This destroys the session, guiding you back to the login page.
+The To-Do page will soon join the application, helping you stay on top of pending tasks for each vehicle.
